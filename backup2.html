@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janusz Andrzejewski</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Definicja kolorów i czcionek dla całej strony */
+        :root {
+            --bg-color: #0b132b;
+            --primary-color: #1c2541;
+            --highlight-color: #6495ED;
+            --text-color: #f0f0f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- NAWIGACJA --- */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: var(--bg-color);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 15px 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--highlight-color);
+            color: white;
+        }
+
+        /* --- SEKCJA HERO (POWITALNA) --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        #moje-zdjecie {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--highlight-color);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin: 20px 0 10px 0;
+            color: white;
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: var(--highlight-color);
+            font-weight: 600;
+        }
+
+        /* --- GŁÓWNA ZAWARTOŚĆ STRONY --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+
+        section {
+             padding-top: 60px;
+        }
+
+        main > section:first-of-type {
+            padding-top: 20px;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--highlight-color);
+            border-bottom: 2px solid var(--highlight-color);
+            padding-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        /* --- GALERIA ZDJĘĆ W SIATCE (GRID) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 15px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item p {
+            margin: 5px 0;
+        }
+
+        .gallery-item .title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .gallery-item .date {
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        /* Style dla animacji pojawiania się przy przewijaniu */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Style dla żartu o Linuksie */
+        .linux-joke {
+            cursor: pointer;
+        }
+
+        .linux-joke .hover-text {
+            display: none;
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        .linux-joke:hover .original-text {
+            display: none;
+        }
+
+        .linux-joke:hover .hover-text {
+            display: inline;
+        }
+
+        /* === NOWE STYLE: KAFELEK Z OBRAZKIEM W ROGU === */
+        .hover-image-container {
+            position: fixed; /* Stała pozycja na ekranie */
+            top: 20px;
+            right: 20px;
+            z-index: 1001; /* Wyżej niż nawigacja */
+        }
+
+        .hover-tile {
+            width: 50px;
+            height: 50px;
+            background-color: var(--highlight-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+                /* DODANE STYLE DO TEKSTU */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 0.9rem;
+
+        }
+
+        .hover-image-container .hidden-image {
+            display: none; /* Domyślnie ukryty */
+            position: absolute;
+            top: 0;
+            right: 60px; /* Pozycja obrazka względem kafelka */
+            width: 300px;
+            height: auto;
+            border: 3px solid var(--highlight-color);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .hover-image-container:hover .hidden-image {
+            display: block; /* Pokaż obrazek po najechaniu na kontener */
+        }
+
+        .hover-image-container:hover .hover-tile {
+            transform: scale(1.1); /* Lekkie powiększenie kafelka */
+        }
+
+        /* === POPRAWKI RESPONSIVE DLA NAWIGACJI === */
+
+        @media (max-width: 768px) {
+            .nav-links a {
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            .nav-links a {
+                padding: 12px 20px;
+                width: 90%;
+                text-align: center;
+            }
+            nav {
+                padding: 0;
+            }
+        }
+
+        /* === NOWE STYLE DLA ROZWIJANYCH PROJEKTÓW === */
+        .projekt-toggle {
+            cursor: pointer;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 15px 20px;
+            margin-top: 20px;
+            margin-bottom: 0;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .projekt-toggle::after {
+            content: '+';
+            font-size: 1.5em;
+            margin-left: auto;
+            transition: transform 0.3s;
+        }
+
+        .projekt-toggle.active::after {
+            content: '-';
+            transform: rotate(180deg);
+        }
+
+        .projekt-toggle:hover {
+            background-color: #273452;
+        }
+
+        .projekt-content {
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+        }
+
+        /* Aktywna klasa, która rozwija treść */
+        .projekt-content.show {
+            max-height: 2000px; /* Dostosuj w razie potrzeby */
+            padding: 20px;
+        }
+
+        /* Upewnij się, że tekst wewnątrz jest poprawnie ostylowany */
+        .projekt-content ul {
+            padding-left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="hover-image-container">
+        <div class="hover-tile">INFO</div>
+        <img src="kochac_pwr.png" alt="Ukryty obrazek" class="hidden-image">
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#o-mnie">O mnie</a></li>
+            <li><a href="#osiagniecia">Osiągnięcia</a></li>
+            <li><a href="#projekty">Projekty</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero fade-in-section">
+        <img id="moje-zdjecie" src="farma.jpeg" alt="Moje zdjęcie">
+        <h1>Janusz Andrzejewski</h1>
+    </header>
+
+    <main class="container">
+
+        <section id="o-mnie" class="fade-in-section">
+            <h2>O mnie</h2>
+            <p>Studiuję na <strong>Politechnice Wrocławskiej</strong>, interesuję się techniczną stroną IT (PC builder), lubię też postprodukcję video.</p>
+            <p>Sporadycznie gram w <a href="https://www.chess.com/member/ja_nulo" target="_blank">szachy</a>, a czasem obejrzę jakiś <a href="https://letterboxd.com/janulo/films/" target="_blank">film</a>.</p>
+            <p>Coś bym więcej napisał ale czat mi się zkończył</p>
+            <p class="linux-joke">
+                <span class="original-text"><strong>I use Linux btw</strong></span>
+                <span class="hover-text">A tak na serio to Minta zacząłem używać ;)</span>
+            </p>
+        </section>
+
+        <section id="osiagniecia" class="fade-in-section">
+            <h2>Osiągnięcia</h2>
+            <ul>
+                <li>Wolontariusz Juwelaliów PWR 2025</li>
+                <li>Dni Kultury  - P.I.W.O. 2025</li>
+                <li>Kostka Rubika 3x3 <1min </li>
+                <li>max 1299 elo w szachach szybkich na chesscom</li>
+            </ul>
+        </section>
+
+        <section id="projekty" class="fade-in-section">
+            <h2>Projekty</h2>
+
+            <div class="projekt">
+
+                <h3 class="projekt-toggle">Strona Portfolio (obecny projekt)</h3>
+                <div class="projekt-content">
+                    <p>To portfolio, które właśnie przeglądasz. Zbudowane od podstaw, aby przećwiczyć HTML, CSS i podstawy JavaScript.</p>
+                    <ul>
+                        <li><strong>Technologie:</strong> HTML5, CSS3, JavaScript</li>
+                    </ul>
+                    <p><a href="https://github.com/JAANULO" target="_blank">Zobacz kod na GitHubie</a></p>
+                </div>
+            </div>
+
+            <div class="projekt">
+                <h3 class="projekt-toggle">Filmy</h3>
+                <div class="projekt-content">
+                    <p><strong>Początki: </strong>dd</p>
+                    <p><strong>Obecnie </strong>dd</p>
+                    <p>Moje ostatnie recenzje:</p>
+                    <div id="letterboxd-embed-wrapper-tc">Ładowanie recenzji...</div>
+                    <p><strong>W przyszłości </strong>ddd</p>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section id="galeria" class="fade-in-section">
+            <h2>Galeria</h2>
+            <div class="gallery-grid">
+
+                 <div class="gallery-item fade-in-section">
+                    <img src="hedgehog.jpg" alt="Zdjęcie jeża">
+                    <p class="title">Protected hedgehog</p>
+                    <p class="date">26 czerwiec 2025</p>
+                </div>
+
+                <div class="gallery-item fade-in-section">
+                    <img src="Juwe.jpg" alt="Juwenalia">
+                    <p class="title">Juwenalia PWR</p>
+                    <p class="date">19 maja 2025</p>
+                </div>
+
+                <div class="gallery-item fade-in-section">
+                    <img src="PIWO.jpg" alt="piwo">
+                    <p class="title">P.I.W.O.</p>
+                    <p class="date">15 maja 2025</p>
+                </div>
+
+                <div class="gallery-item fade-in-section">
+                    <img src="rajd.jpg" alt="rajd">
+                    <p class="title">Rajd</p>
+                    <p class="date">27 kwietnia 2025</p>
+                </div>
+
+                <div class="gallery-item fade-in-section">
+                    <img src="w3.png" alt="Zrzut ekranu z Wiedźmina 3">
+                    <p class="title">Wiedźmin 3</p>
+                    <p class="date">12 czerwiec 2021</p>
+                </div>
+
+                <div class="gallery-item fade-in-section">
+                    <img src="park.jpg" alt="Zdjęcie beczki w parku">
+                    <p class="title">Beczka</p>
+                    <p class="date">29 czerwiec 2021</p>
+                </div>
+
+                <div class="gallery-item fade-in-section">
+                    <img src="Szrenica.jpg" alt="Zdjęcie ze Szrenicy">
+                    <p class="title">Szrenica</p>
+                    <p class="date">16 grudzień 2017</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakt" class="fade-in-section">
+            <h2>Kontakt</h2>
+            <p>Możesz się ze mną skontaktować przez email: <strong>284052@student.pwr.edu.pl</strong></p>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('.fade-in-section');
+
+            const observerOptions = {
+                root: null, // używa viewportu jako kontenera
+                rootMargin: '0px',
+                threshold: 0.1 // uruchom, gdy 10% elementu jest widoczne
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // przestań obserwować po pokazaniu
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+
+            // === NOWY KOD JAVASCRIPT DLA ROZWIJANYCH PROJEKTÓW ===
+            const toggles = document.querySelectorAll('.projekt-toggle');
+
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+
+                    // Zwiń wszystkie otwarte projekty
+                    document.querySelectorAll('.projekt-content.show').forEach(item => {
+                        // Upewnij się, że nie zwijasz właśnie tego, w który kliknąłeś
+                        if (item !== content) {
+                            item.classList.remove('show');
+                            item.previousElementSibling.classList.remove('active');
+                        }
+                    });
+
+                    // Przełącz klasę 'active' na nagłówku i 'show' na treści
+                    toggle.classList.toggle('active');
+                    content.classList.toggle('show');
+                });
+            });
+
+        // Tworzenie nowego elementu, który pozwoli przeglądarce przetworzyć tekst w kod HTML
+    const parser = new DOMParser();
+
+    fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://letterboxd.com/janulo/rss/'))
+    .then(response => response.text())
+    .then(str => parser.parseFromString(str, "text/xml"))
+    .then(data => {
+        // Znalezienie wszystkich elementów <item> w kanale RSS
+        const items = data.querySelectorAll("item");
+
+        // Utworzenie pustego ciągu znaków do przechowywania HTML-a
+        let htmlContent = '';
+
+        // Pętla po pierwszych trzech elementach
+        for (let i = 0; i < 3 && i < items.length; i++) {
+            const item = items[i];
+
+            // Wyodrębnianie tytułu, opisu i linku
+            const title = item.querySelector("title").textContent;
+            const description = item.querySelector("description").textContent;
+            const link = item.querySelector("link").textContent;
+
+            // Tworzenie fragmentu HTML dla każdej recenzji
+            htmlContent += `
+                <div class="review-item">
+                    <h4><a href="${link}" target="_blank">${title}</a></h4>
+                    <p>${description}</p>
+                </div>
+            `;
+        }
+
+        // Wstawienie gotowego kodu HTML do kontenera
+        document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = htmlContent;
+    })
+    .catch(error => {
+        console.error('Błąd podczas pobierania recenzji:', error);
+        document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = 'Nie udało się załadować recenzji.';
+    });
+});
+
+
+
+    </script>
+</body>
+</html>
