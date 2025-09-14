@@ -177,6 +177,31 @@
             gap: 20px;
             }
 
+        @media (max-width: 1200px) {
+            .series-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .series-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .series-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .series-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+
         .series-item {
             flex: 0 1 200px; /* Ustawia elastyczność i bazową szerokość */
             background-color: var(--primary-color);
@@ -205,6 +230,66 @@
 
         .series-item:hover img {
             transform: scale(1.05);
+        }
+
+        .seasons-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+            padding: 0 5px;
+        }
+
+        .season-icon {
+            display: block;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            background-color: var(--highlight-color); /* Domyślny kolor niebieski */
+        }
+
+        .season-icon:hover {
+            background-color: #5184da;
+            transform: scale(1.1);
+        }
+
+        /* Styl dla obejrzanych sezonów (zielony) */
+        .season-icon.watched {
+            background-color: #4CAF50; /* Zielony */
+        }
+
+        /* Styl dla oglądanych sezonów (żółty) */
+        .season-icon.watching {
+            background-color: #FFC107; /* Żółty */
+        }
+
+        /* Styl dla nieoglądanych sezonów (szary) */
+        .season-icon.not-watched {
+            background-color: #757575; /* Szary */
+        }
+
+        /* Hover effect - można go zachować lub dostosować */
+        .season-icon:hover {
+            background-color: #5184da; /* Domyślny kolor na hover */
+            transform: scale(1.1);
+        }
+
+        /* Hover dla poszczególnych statusów, aby były bardziej specyficzne */
+        .season-icon.watched:hover {
+            background-color: #45a049; /* Ciemniejszy zielony */
+        }
+
+        .season-icon.watching:hover {
+            background-color: #e0a800; /* Ciemniejszy żółty */
+        }
+
+        .season-icon.not-watched:hover {
+            background-color: #5a5a5a; /* Ciemniejszy szary */
         }
 
         /* Style dla animacji pojawiania się przy przewijaniu */
@@ -393,10 +478,9 @@
             <h2>O mnie</h2>
             <p>Studiuję na <strong>Politechnice Wrocławskiej</strong></p>
             <p>Sporadycznie gram w <a href="https://www.chess.com/member/ja_nulo" target="_blank">szachy</a>, a czasem obejrzę jakiś <a href="https://letterboxd.com/janulo/films/" target="_blank">film</a>.</p>
-            <p>Coś bym więcej napisał ale czat mi się zkończył</p>
             <p class="linux-joke">
-                <span class="original-text"><strong>I use Linux btw</strong></span>
-                <span class="hover-text">A tak na serio to Minta zacząłem używać ;)</span>
+                <span class="original-text"><strong>-</strong></span>
+                <span class="hover-text">tu nic nie ma</span>
             </p>
         </section>
 
@@ -428,115 +512,376 @@
 
                         <div class="series-item fade-in-section">
                             <img src="dexter_r.jpg" alt="g">
-                            <p class="title">Dexter Resurrection</p> </div>
+                            <p class="title">Dexter Resurrection</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="d_orin.jpeg" alt="g">
-                            <p class="title">Dexter Original Sin</p> </div>
+                            <p class="title">Dexter Original Sin</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="pin.jpeg" alt="g">
-                            <p class="title">The Penguin</p> </div>
+                            <p class="title">The Penguin</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="fall.jpg" alt="g">
-                            <p class="title">Fallout</p> </div>
+                            <p class="title">Fallout</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="1670.jpg" alt="g">
-                            <p class="title">1670</p> </div>
+                            <p class="title">1670</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon not-watched">S2</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="las.jpg" alt="g">
-                            <p class="title">The Last of Us</p> </div>
+                            <p class="title">The Last of Us</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watching">S2</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="new.jpg" alt="g">
-                            <p class="title">Dexter: New Blood</p> </div>
+                            <p class="title">Dexter: New Blood</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="wie.jpg" alt="g">
-                            <p class="title">The Wicher</p> </div>
+                            <p class="title">The Wicher</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon not-watched">S2</span>
+                                <span class="season-icon not-watched">S3</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="manda.jpeg" alt="g">
-                            <p class="title">The Mandalorian</p> </div>
+                            <p class="title">The Mandalorian</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon not-watched">S3</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="boy.jpg" alt="Tytuł serialu 3">
-                            <p class="title">The Boys</p> </div>
+                            <p class="title">The Boys</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="eu.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Euphoria</p> </div>
+                            <p class="title">Euphoria</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="czar.jpeg" alt="Tytuł serialu 3">
-                            <p class="title">Chernobyl</p> </div>
+                            <p class="title">Chernobyl</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="sle.jpeg" alt="Tytuł serialu 3">
-                            <p class="title">Ślepnąc od świateł</p> </div>
+                            <p class="title">Ślepnąc od świateł</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="dom.jpg" alt="Tytuł serialu 3">
-                            <p class="title">La casa de papel</p> </div>
+                            <p class="title">La casa de papel</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="str.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Strange Things</p> </div>
+                            <p class="title">Stranger Things</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                            </div>
+                        </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="nar.jpg" alt="Tytuł serialu 3">
+                            <p class="title">Narcos</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="der.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Daredevil</p> </div>
+                            <p class="title">Daredevil</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="bett.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Better Call Saul</p> </div>
+                            <p class="title">Better Call Saul</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                                <span class="season-icon watched">S6</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="true.jpeg" alt="Tytuł serialu 3">
-                            <p class="title">True Detective</p> </div>
+                            <p class="title">True Detective</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon not-watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="rick.png" alt="Tytuł serialu 3">
-                            <p class="title">Rick and Morty</p> </div>
+                            <p class="title">Rick and Morty</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                                <span class="season-icon watched">S6</span>
+                                <span class="season-icon watched">S7</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="age.jpg" alt="g">
-                            <p class="title">Agents of S.H.I.E.L.D.</p> </div>
+                            <p class="title">Agents of S.H.I.E.L.D.</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                                <span class="season-icon watched">S6</span>
+                                <span class="season-icon watched">S7</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="games.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Games of Thrones</p> </div>
+                            <p class="title">Games of Thrones</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon not-watched">S2</span>
+                                <span class="season-icon not-watched">S3</span>
+                                <span class="season-icon not-watched">S4</span>
+                                <span class="season-icon not-watched">S5</span>
+                                <span class="season-icon not-watched">S6</span>
+                                <span class="season-icon not-watched">S7</span>
+                                <span class="season-icon not-watched">S8</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="wal.jpg" alt="Tytuł serialu 3">
-                            <p class="title">The Walking Dead</p> </div>
+                            <p class="title">The Walking Dead</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                                <span class="season-icon watched">S6</span>
+                                <span class="season-icon watched">S7</span>
+                                <span class="season-icon watched">S8</span>
+                                <span class="season-icon watched">S9</span>
+                                <span class="season-icon watched">S10</span>
+                                <span class="season-icon watched">S11</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="sher.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Sherlock</p> </div>
+                            <p class="title">Sherlock</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="menta.jpg" alt="Tytuł serialu 3">
-                            <p class="title">The Mentalist</p> </div>
+                            <p class="title">The Mentalist</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                                <span class="season-icon watched">S6</span>
+                                <span class="season-icon watching">S7</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="br.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Breaking Bad</p> </div>
+                            <p class="title">Breaking Bad</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="dexter.jpg" alt="Tytuł serialu 2">
-                            <p class="title">Dexter</p> </div>
+                            <p class="title">Dexter</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                                <span class="season-icon watched">S6</span>
+                                <span class="season-icon watched">S7</span>
+                                <span class="season-icon watched">S8</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="sup.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Supernatural</p> </div>
+                            <p class="title">Supernatural</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                                <span class="season-icon watching">S6</span>
+                                <span class="season-icon not-watched">S7</span>
+                                <span class="season-icon not-watched">S8</span>
+                                <span class="season-icon not-watched">S9</span>
+                                <span class="season-icon not-watched">S10</span>
+                                <span class="season-icon not-watched">S11</span>
+                                <span class="season-icon not-watched">S12</span>
+                                <span class="season-icon not-watched">S13</span>
+                                <span class="season-icon not-watched">S14</span>
+                                <span class="season-icon not-watched">S15</span>
+                            </div>
+                        </div>
 
                         <div class="series-item fade-in-section">
                             <img src="dr_house.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Dr House</p> </div>
+                            <p class="title">Dr House</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                                <span class="season-icon watched">S6</span>
+                                <span class="season-icon watched">S7</span>
+                                <span class="season-icon watched">S8</span>
+                            </div>
+                        </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="biur.jpg" alt="Tytuł serialu 3">
+                            <p class="title">The Office</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+                                <span class="season-icon watched">S3</span>
+                                <span class="season-icon watched">S4</span>
+                                <span class="season-icon watched">S5</span>
+                                <span class="season-icon watched">S6</span>
+                                <span class="season-icon watched">S7</span>
+                                <span class="season-icon watched">S8</span>
+                                <span class="season-icon watched">S9</span>
+                            </div>
+                        </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="sop.jpg" alt="Tytuł serialu 3">
+                            <p class="title">The Sopranos</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watching">S1</span>
+                                <span class="season-icon not-watched">S2</span>
+                                <span class="season-icon not-watched">S3</span>
+                                <span class="season-icon not-watched">S4</span>
+                                <span class="season-icon not-watched">S5</span>
+                                <span class="season-icon not-watched">S6</span>
+
+                            </div>
+                        </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="13.jpg" alt="Tytuł serialu 3">
+                            <p class="title">13 posterunek</p>
+                            <div class="seasons-container">
+                                <span class="season-icon watched">S1</span>
+                                <span class="season-icon watched">S2</span>
+
+
+                            </div>
+                        </div>
+
 
                     </div>
                 </div>
