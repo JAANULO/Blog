@@ -170,6 +170,43 @@
             color: #aaa;
         }
 
+        /* === NOWE STYLE DLA SEKCJI SERIALE === */
+        .series-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            }
+
+        .series-item {
+            flex: 0 1 200px; /* Ustawia elastyczność i bazową szerokość */
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 15px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            display: flex; /* Dodane aby umożliwić wyrównanie treści wewnątrz */
+            flex-direction: column; /* Dodane aby umożliwić wyrównanie treści wewnątrz */
+            justify-content: space-between; /* Rozmieszczenie treści w pionie */
+        }
+
+        .series-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .series-item img {
+            width: 100%;
+            height: auto; /* Zmieniono na auto, aby zachować proporcje */
+            max-height: 175px; /* Ograniczenie maksymalnej wysokości obrazu */
+            object-fit: contain; /* Kluczowa zmiana: nie przycina, a dopasowuje */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .series-item:hover img {
+            transform: scale(1.05);
+        }
+
         /* Style dla animacji pojawiania się przy przewijaniu */
         .fade-in-section {
             opacity: 0;
@@ -313,7 +350,7 @@
 
         /* Aktywna klasa, która rozwija treść */
         .projekt-content.show {
-            max-height: 2000px; /* Dostosuj w razie potrzeby */
+            max-height: 4000px; /* Dostosuj w razie potrzeby */
             padding: 20px;
         }
 
@@ -340,12 +377,11 @@
         <ul class="nav-links">
             <li><a href="#o-mnie">O mnie</a></li>
             <li><a href="#osiagniecia">Osiągnięcia</a></li>
-            <li><a href="#projekty">Projekty</a></li>
+            <li><a href="#kino">Kino</a></li>
             <li><a href="#galeria">Galeria</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
         </ul>
     </nav>
-
     <header class="hero fade-in-section">
         <img id="moje-zdjecie" src="farma.jpeg" alt="Moje zdjęcie">
         <h1>Janusz Andrzejewski</h1>
@@ -355,7 +391,7 @@
 
         <section id="o-mnie" class="fade-in-section">
             <h2>O mnie</h2>
-            <p>Studiuję na <strong>Politechnice Wrocławskiej</strong>, interesuję się techniczną stroną IT (PC builder), lubię też postprodukcję video.</p>
+            <p>Studiuję na <strong>Politechnice Wrocławskiej</strong></p>
             <p>Sporadycznie gram w <a href="https://www.chess.com/member/ja_nulo" target="_blank">szachy</a>, a czasem obejrzę jakiś <a href="https://letterboxd.com/janulo/films/" target="_blank">film</a>.</p>
             <p>Coś bym więcej napisał ale czat mi się zkończył</p>
             <p class="linux-joke">
@@ -374,31 +410,136 @@
             </ul>
         </section>
 
-        <section id="projekty" class="fade-in-section">
-            <h2>Projekty</h2>
+        <section id="kino" class="fade-in-section">
+            <h2>Kino</h2>
+            <p><strong>Początki: </strong>Na początku pandemii kiedy większość czasu spędzałem w domu zacząłem oglądać różne rzeczy, najpierw obejrzałem chronologicznie uniwersum Marvela, potem trylogię "Mrocznego Rycerza". A gdy skończyłem Breaking Bad oraz Better Call Saul (na ten moment moje ulubione seriale) to tak naprawdę polubiłem kino. </p>
+            <p><strong>Obecnie: </strong>Staram się zmniejszać moją listę "do obejrzenia". Czasami też czytam ciekawostki z planów, zagadnienia techniczne i takie tam.</p>
 
-            <div class="projekt">
-
-                <h3 class="projekt-toggle">Strona Portfolio (obecny projekt)</h3>
+            <h3 class="projekt-toggle">Recenzje ostatnich filmów:</h3>
                 <div class="projekt-content">
-                    <p>To portfolio, które właśnie przeglądasz. Zbudowane od podstaw, aby przećwiczyć HTML, CSS i podstawy JavaScript.</p>
-                    <ul>
-                        <li><strong>Technologie:</strong> HTML5, CSS3, JavaScript</li>
-                    </ul>
-                    <p><a href="https://github.com/JAANULO" target="_blank">Zobacz kod na GitHubie</a></p>
-                </div>
-            </div>
-
-            <div class="projekt">
-                <h3 class="projekt-toggle">Filmy</h3>
-                <div class="projekt-content">
-                    <p><strong>Początki: </strong>dd</p>
-                    <p><strong>Obecnie </strong>dd</p>
-
-                    <p>Moje ostatnie recenzje:</p>
+                    <p>A gdy coś obejrze to staram się to zrecenzować:</p>
                     <div id="letterboxd-embed-wrapper-tc">Ładowanie recenzji...</div>
                 </div>
-            </div>
+
+            <h3 class="projekt-toggle">Seriale</h3>
+                <div class="projekt-content">
+                    <p>Seriale jakie oglądam/obejrzałem:</p>
+                    <div class="series-container">
+
+                        <div class="series-item fade-in-section">
+                            <img src="dexter_r.jpg" alt="g">
+                            <p class="title">Dexter Resurrection</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="d_orin.jpeg" alt="g">
+                            <p class="title">Dexter Original Sin</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="pin.jpeg" alt="g">
+                            <p class="title">The Penguin</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="fall.jpg" alt="g">
+                            <p class="title">Fallout</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="1670.jpg" alt="g">
+                            <p class="title">1670</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="las.jpg" alt="g">
+                            <p class="title">The Last of Us</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="new.jpg" alt="g">
+                            <p class="title">Dexter: New Blood</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="wie.jpg" alt="g">
+                            <p class="title">The Wicher</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="manda.jpeg" alt="g">
+                            <p class="title">The Mandalorian</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="boy.jpg" alt="Tytuł serialu 3">
+                            <p class="title">The Boys</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="eu.jpg" alt="Tytuł serialu 3">
+                            <p class="title">Euphoria</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="czar.jpeg" alt="Tytuł serialu 3">
+                            <p class="title">Chernobyl</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="sle.jpeg" alt="Tytuł serialu 3">
+                            <p class="title">Ślepnąc od świateł</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="dom.jpg" alt="Tytuł serialu 3">
+                            <p class="title">La casa de papel</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="str.jpg" alt="Tytuł serialu 3">
+                            <p class="title">Strange Things</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="der.jpg" alt="Tytuł serialu 3">
+                            <p class="title">Daredevil</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="bett.jpg" alt="Tytuł serialu 3">
+                            <p class="title">Better Call Saul</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="true.jpeg" alt="Tytuł serialu 3">
+                            <p class="title">True Detective</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="rick.png" alt="Tytuł serialu 3">
+                            <p class="title">Rick and Morty</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="age.jpg" alt="g">
+                            <p class="title">Agents of S.H.I.E.L.D.</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="games.jpg" alt="Tytuł serialu 3">
+                            <p class="title">Games of Thrones</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="wal.jpg" alt="Tytuł serialu 3">
+                            <p class="title">The Walking Dead</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="sher.jpg" alt="Tytuł serialu 3">
+                            <p class="title">Sherlock</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="menta.jpg" alt="Tytuł serialu 3">
+                            <p class="title">The Mentalist</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="br.jpg" alt="Tytuł serialu 3">
+                            <p class="title">Breaking Bad</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="dexter.jpg" alt="Tytuł serialu 2">
+                            <p class="title">Dexter</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="sup.jpg" alt="Tytuł serialu 3">
+                            <p class="title">Supernatural</p> </div>
+
+                        <div class="series-item fade-in-section">
+                            <img src="dr_house.jpg" alt="Tytuł serialu 3">
+                            <p class="title">Dr House</p> </div>
+
+                    </div>
+                </div>
 
         </section>
 

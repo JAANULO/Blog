@@ -317,6 +317,11 @@
             padding: 20px;
         }
 
+        /* Ukrycie tekstu "...more on Letterboxd" w widżecie */
+        iframe[src*="letterboxd-embed.timcieplowski.com"] p:last-child {
+            display: none;
+        }
+
         /* Upewnij się, że tekst wewnątrz jest poprawnie ostylowany */
         .projekt-content ul {
             padding-left: 20px;
@@ -385,14 +390,13 @@
             </div>
 
             <div class="projekt">
-                <h3 class="projekt-toggle">Filmy</h3>
+                <h3 class="projekt-toggle">Kino</h3>
                 <div class="projekt-content">
-                    <p><strong>Początki: </strong>dd</p>
-                    <p><strong>Obecnie </strong>dd</p>
-                    <p>Moje ostatnie recenzje:</p>
-                    <div id="letterboxd-embed-wrapper-tc">Ładowanie recenzji...</div>
-                    <p><strong>W przyszłości </strong>ddd</p>
+                    <p><strong>Początki: </strong>Na początku pandemii kiedy większość czasu spędzałem w domu zacząłem oglądać różne rzeczy, najpierw obejrzałem chronologicznie uniwersum Marvela, potem trylogię "Mrocznego Rycerza". A gdy skończyłem Breaking Bad oraz Better Call Saul (na ten moment moje ulubione seriale) to tak naprawdę polubiłem kino. </p>
+                    <p><strong>Obecnie: </strong>Staram się zmniejszać moją listę "do obejrzenia". Czasami też czytam ciekawostki z planów, zagadnienia techniczne i takie tam.</p>
 
+                    <p>A gdy coś obejrze to staram się to zrecenzować:</p>
+                    <div id="letterboxd-embed-wrapper-tc">Ładowanie recenzji...</div>
                 </div>
             </div>
 
@@ -458,9 +462,9 @@
             const sections = document.querySelectorAll('.fade-in-section');
 
             const observerOptions = {
-                root: null, // używa viewportu jako kontenera
+                root: null,
                 rootMargin: '0px',
-                threshold: 0.1 // uruchom, gdy 10% elementu jest widoczne
+                threshold: 0.1
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
@@ -499,48 +503,14 @@
                 });
             });
 
-        // Tworzenie nowego elementu, który pozwoli przeglądarce przetworzyć tekst w kod HTML
-    const parser = new DOMParser();
 
-    fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://letterboxd.com/janulo/rss/'))
-    .then(response => response.text())
-    .then(str => parser.parseFromString(str, "text/xml"))
-    .then(data => {
-        // Znalezienie wszystkich elementów <item> w kanale RSS
-        const items = data.querySelectorAll("item");
-
-        // Utworzenie pustego ciągu znaków do przechowywania HTML-a
-        let htmlContent = '';
-
-        // Pętla po pierwszych trzech elementach
-        for (let i = 0; i < 3 && i < items.length; i++) {
-            const item = items[i];
-
-            // Wyodrębnianie tytułu, opisu i linku
-            const title = item.querySelector("title").textContent;
-            const description = item.querySelector("description").textContent;
-            const link = item.querySelector("link").textContent;
-
-            // Tworzenie fragmentu HTML dla każdej recenzji
-            htmlContent += `
-                <div class="review-item">
-                    <h4><a href="${link}" target="_blank">${title}</a></h4>
-                    <p>${description}</p>
-                </div>
-            `;
-        }
-
-        // Wstawienie gotowego kodu HTML do kontenera
-        document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = htmlContent;
-    })
-    .catch(error => {
-        console.error('Błąd podczas pobierania recenzji:', error);
-        document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = 'Nie udało się załadować recenzji.';
-    });
-});
-
-
-
+        // === KOD JAVASCRIPT DO POBIERANIA RECENZJI Z LETTERBOXD ===
+        fetch('https://lb-embed-content.bokonon.dev?username=janulo&limit=3'+ new Date().getTime())
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = data;
+            });
+        });
     </script>
 </body>
 </html>
