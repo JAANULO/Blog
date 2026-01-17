@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admina - Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Kolory z frontendu */
+        :root {
+            --bg-color: #0b132b;
+            --primary-color: #1c2541;
+            --highlight-color: #6495ED;
+            --text-color: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--highlight-color);
+            border-bottom: 2px solid var(--highlight-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .card {
+            background: var(--primary-color);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid var(--highlight-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #0a0f1f;
+            color: var(--text-color);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #888;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #6495ED;
+            box-shadow: 0 0 5px rgba(100, 149, 237, 0.5);
+        }
+
+        label {
+            font-weight: 600;
+            margin-top: 12px;
+            display: block;
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        button {
+            background-color: var(--highlight-color);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background-color: #5080d0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(100, 149, 237, 0.4);
+        }
+
+        button.btn-delete {
+            background-color: #dc3545;
+        }
+
+        button.btn-delete:hover {
+            background-color: #c82333;
+        }
+
+        button.btn-success {
+            background-color: #4CAF50;
+        }
+
+        button.btn-success:hover {
+            background-color: #45a049;
+        }
+
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .series-item {
+            background: linear-gradient(135deg, var(--primary-color), #0a0f1f);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 3px solid transparent;
+        }
+
+        .series-item.favorite {
+            border-color: #ff1744 !important;
+            box-shadow: 0 0 15px rgba(255, 23, 68, 0.6), 0 8px 16px rgba(100, 149, 237, 0.4) !important;
+        }
+
+        .series-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(100, 149, 237, 0.2);
+        }
+
+        .series-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .series-item-content {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .series-item-title {
+            font-weight: 700;
+            font-size: 15px;
+            margin: 0 0 8px 0;
+            color: var(--highlight-color);
+        }
+
+        .series-item-meta {
+            font-size: 12px;
+            color: #aaa;
+            margin: 3px 0;
+        }
+
+        .series-item-seasons {
+            font-size: 11px;
+            color: #888;
+            margin: 8px 0;
+        }
+
+        .seasons-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+            padding: 8px 0;
+        }
+
+        .season-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .season-badge.watched {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .season-badge.watching {
+            background-color: #FFC107;
+            color: #000;
+        }
+
+        .season-badge.not-watched {
+            background-color: #757575;
+            color: white;
+        }
+
+        .season-badge:hover {
+            border-color: var(--highlight-color);
+            opacity: 0.8;
+        }
+
+        .series-item-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(100, 149, 237, 0.2);
+        }
+
+        .series-item-actions button {
+            flex: 1;
+            padding: 8px 6px;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        button.btn-favorite {
+            background-color: #e91e63;
+        }
+
+        button.btn-favorite:hover {
+            background-color: #c2185b;
+        }
+
+        button.btn-favorite.active {
+            background-color: #ff1744 !important;
+            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 23, 68, 0.6) !important;
+            font-weight: bold;
+        }
+
+        .season-editor {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            padding: 12px;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .season-editor.show {
+            display: block;
+        }
+
+        .season-editor h4 {
+            margin: 0 0 10px 0;
+            color: var(--highlight-color);
+            font-size: 13px;
+        }
+
+        .season-editor-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+        }
+
+        .season-editor-buttons button {
+            padding: 6px 4px;
+            font-size: 11px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                max-width: 100%;
+            }
+            .series-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Panel Zarządzania</h1>
+
+    <div class="card">
+        <h2>Edytuj "O mnie"</h2>
+        <textarea id="tekst-o-mnie" rows="4"></textarea>
+        <button onclick="zapiszOpis()">Zapisz Opis</button>
+    </div>
+
+    <div class="card">
+        <h2>Dodaj nowy serial / miniserial</h2>
+
+        <label>Tytuł:</label>
+        <input type="text" id="tytul" placeholder="Np. Breaking Bad">
+
+        <label>Data premiery (do sortowania):</label>
+        <input type="date" id="data_premiery">
+
+        <label>Zdjęcie:</label>
+        <input type="text" id="img" placeholder="Np. media/obrazek.jpg">
+
+        <label>Liczba sezonów:</label>
+        <input type="number" id="liczba-sezonow" placeholder="1">
+
+        <label>Kategoria:</label>
+        <select id="kategoria">
+            <option value="seriale">Serial</option>
+            <option value="miniseriale">Miniserial</option>
+        </select>
+
+        <br><br>
+        <button onclick="dodajSerial()">Dodaj do bazy</button>
+    </div>
+
+    <div class="card">
+        <h2>Seriale</h2>
+        <div id="seriale-list" class="series-grid"></div>
+    </div>
+
+    <div class="card">
+        <h2>Miniseriale</h2>
+        <div id="miniseriale-list" class="series-grid"></div>
+    </div>
+
+    <script>
+        // Dynamiczny URL API - działa zarówno na localhost jak i produkcji
+        const API_URL = window.location.origin + '/api';
+
+        // Załaduj dane na starcie
+        function loadData() {
+            fetch(API_URL + "/data").then(res => res.json()).then(data => {
+                console.log("Loaded data:", data);
+                if(data.o_mnie) document.getElementById("tekst-o-mnie").value = data.o_mnie;
+
+                // Wyrenderuj seriale i miniseriale
+                if(data.seriale) renderSeries('seriale-list', data.seriale, 'seriale');
+                if(data.miniseriale) renderSeries('miniseriale-list', data.miniseriale, 'miniseriale');
+            }).catch(err => {
+                console.error("Błąd ładowania danych:", err);
+            });
+        }
+
+        function renderSeries(containerId, seriesArray, kategoria) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            seriesArray.forEach((series, index) => {
+                const seasonCount = series.sezony ? series.sezony.length : 0;
+                const year = series.data ? new Date(series.data).getFullYear() : 'brak';
+                const isFavorite = series.favorite || false;
+
+                console.log(`Rendering ${series.tytul}: favorite=${isFavorite}`);
+
+                const item = document.createElement('div');
+                item.className = 'series-item' + (isFavorite ? ' favorite' : '');
+
+                let seasonsHTML = '';
+                if(series.sezony) {
+                    seasonsHTML = '<div class="seasons-list">';
+                    series.sezony.forEach(season => {
+                        const statusClass = season.status || 'not-watched';
+                        seasonsHTML += `<span class="season-badge ${statusClass}" onclick="toggleSeasonStatus('${series.tytul}', ${season.nr}, '${kategoria}')" title="S${season.nr}">${season.nr}</span>`;
+                    });
+                    seasonsHTML += '</div>';
+                }
+
+                const favoriteClass = isFavorite ? 'active' : '';
+
+                item.innerHTML = `
+                    <img src="${series.img}" alt="${series.tytul}" onerror="this.src='media/favicon.png'">
+                    <div class="series-item-content">
+                        <div class="series-item-title">${series.tytul}</div>
+                        <div class="series-item-meta">${year}</div>
+                        <div class="series-item-seasons">${seasonCount} sezon${seasonCount !== 1 ? 'ów' : ''}</div>
+                        ${seasonsHTML}
+                        <div class="series-item-actions">
+                            <button class="btn-favorite ${favoriteClass}" onclick="toggleFavorite('${series.tytul}', '${kategoria}')">♥ Ulubione</button>
+                            <button class="btn-delete" onclick="deleteSeries('${series.tytul}', '${kategoria}')">🗑 Usuń</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function toggleSeasonStatus(tytul, nrSezonu, kategoria) {
+            // Pobierz obecny status
+            fetch(API_URL + "/data").then(res => res.json()).then(data => {
+                let serial = data[kategoria].find(s => s.tytul === tytul);
+                if(!serial) return;
+
+                let sezon = serial.sezony.find(s => s.nr === nrSezonu);
+                if(!sezon) return;
+
+                // Zmień status: not-watched -> watching -> watched -> not-watched
+                let nowyStatus;
+                if(sezon.status === 'not-watched') nowyStatus = 'watching';
+                else if(sezon.status === 'watching') nowyStatus = 'watched';
+                else nowyStatus = 'not-watched';
+
+                // Wyślij do backendu
+                fetch(API_URL + "/update-season", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        tytul: tytul,
+                        numer_sezonu: nrSezonu,
+                        status: nowyStatus,
+                        kategoria: kategoria
+                    })
+                }).then(res => res.json()).then(data => {
+                    loadData(); // Odśwież listę
+                });
+            });
+        }
+
+        function toggleFavorite(tytul, kategoria) {
+            fetch(API_URL + "/toggle-favorite", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    tytul: tytul,
+                    kategoria: kategoria
+                })
+            }).then(res => res.json()).then(data => {
+                console.log("Toggle favorite response:", data);
+                loadData(); // Odśwież listę
+            }).catch(err => {
+                console.error("Błąd toggle favorite:", err);
+            });
+        }
+
+        function deleteSeries(tytul, kategoria) {
+            if(confirm(`Czy naprawdę chcesz usunąć "${tytul}"?`)) {
+                fetch(API_URL + "/delete-series", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        tytul: tytul,
+                        kategoria: kategoria
+                    })
+                }).then(res => res.json()).then(data => {
+                    alert(data.message);
+                    loadData(); // Odśwież listę
+                });
+            }
+        }
+
+        // Załaduj dane po załadowaniu strony
+        document.addEventListener('DOMContentLoaded', loadData);
+
+        function zapiszOpis() {
+            const tekst = document.getElementById("tekst-o-mnie").value;
+            fetch(API_URL + "/update-text", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: tekst })
+            }).then(res => alert("Zapisano!"));
+        }
+
+        function dodajSerial() {
+            const tytul = document.getElementById("tytul").value;
+            const data_premiery = document.getElementById("data_premiery").value;
+            const img = document.getElementById("img").value;
+            const sezony = document.getElementById("liczba-sezonow").value;
+            const kategoria = document.getElementById("kategoria").value;
+
+            if(!tytul || !data_premiery) {
+                alert("Podaj tytuł i datę!");
+                return;
+            }
+
+            fetch(API_URL + "/add-series", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    tytul: tytul,
+                    data: data_premiery,
+                    img: img,
+                    liczba_sezonow: sezony,
+                    kategoria: kategoria
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert(data.message);
+                // Zamiast reload, odśwież listy
+                document.getElementById("tytul").value = '';
+                document.getElementById("data_premiery").value = '';
+                document.getElementById("img").value = '';
+                document.getElementById("liczba-sezonow").value = '1';
+                loadData();
+            })
+            .catch(err => alert("Błąd!"));
+        }
+    </script>
+</body>
+</html>

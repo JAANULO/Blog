@@ -1,0 +1,1161 @@
+{
+  "o_mnie": "Studiuję na <strong>Politechnice Wrocławskiej</strong><br>Sporadycznie gram w <a href='https://www.chess.com/member/ja_nulo' target='_blank'>szachy</a>, a czasem obejrzę jakiś <a href='https://letterboxd.com/janulo/films/' target='_blank'>film</a>.",
+  "seriale": [
+    {
+      "tytul": "Pluribus",
+      "data": "2025-11-07",
+      "img": "media/plur.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ],
+      "favorite": false
+    },
+    {
+      "tytul": "Dexter Resurrection",
+      "data": "2025-07-01",
+      "img": "media/dexter_r.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ],
+      "favorite": false
+    },
+    {
+      "tytul": "The Studio",
+      "data": "2025-03-26",
+      "img": "media/studio.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watching"
+        },
+        {
+          "nr": 2,
+          "status": "not-watched"
+        }
+      ],
+      "favorite": false
+    },
+    {
+      "tytul": "Dexter Original Sin",
+      "data": "2024-12-13",
+      "img": "media/d_orin.jpeg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Penguin",
+      "data": "2024-09-19",
+      "img": "media/pin.jpeg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Fallout",
+      "data": "2024-04-10",
+      "img": "media/fall.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watching"
+        }
+      ]
+    },
+    {
+      "tytul": "The Ones Who Live",
+      "data": "2024-02-25",
+      "img": "media/ones.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "1670",
+      "data": "2023-12-13",
+      "img": "media/1670.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Gen V",
+      "data": "2023-09-29",
+      "img": "media/genv.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Daryl Dixon",
+      "data": "2023-09-10",
+      "img": "media/daryl.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watching"
+        },
+        {
+          "nr": 3,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Dead City",
+      "data": "2023-06-18",
+      "img": "media/city.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watching"
+        }
+      ]
+    },
+    {
+      "tytul": "The Last of Us",
+      "data": "2023-01-15",
+      "img": "media/las.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watching"
+        }
+      ]
+    },
+    {
+      "tytul": "Tulsa King",
+      "data": "2022-11-13",
+      "img": "media/tulsa.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watching"
+        },
+        {
+          "nr": 3,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Reacher",
+      "data": "2022-02-04",
+      "img": "media/reacher.png",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watching"
+        }
+      ]
+    },
+    {
+      "tytul": "The Office PL",
+      "data": "2021-10-21",
+      "img": "media/pl.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Lupin",
+      "data": "2021-01-08",
+      "img": "media/lupin.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Wicher",
+      "data": "2019-12-20",
+      "img": "media/wie.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "not-watched"
+        },
+        {
+          "nr": 3,
+          "status": "not-watched"
+        },
+        {
+          "nr": 4,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Mandalorian",
+      "data": "2019-11-12",
+      "img": "media/manda.jpeg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Boys",
+      "data": "2019-07-26",
+      "img": "media/boy.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Euphoria",
+      "data": "2019-06-16",
+      "img": "media/eu.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Punisher",
+      "data": "2017-02-25",
+      "img": "media/pun.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "La casa de papel",
+      "data": "2017-05-02",
+      "img": "media/dom.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Fleabag",
+      "data": "2016-07-21",
+      "img": "media/flea.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Stranger Things",
+      "data": "2016-07-15",
+      "img": "media/str.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Lucifer",
+      "data": "2016-01-25",
+      "img": "media/Lucifer.png",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Narcos",
+      "data": "2015-08-28",
+      "img": "media/nar.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Daredevil",
+      "data": "2015-04-10",
+      "img": "media/der.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Better Call Saul",
+      "data": "2015-02-08",
+      "img": "media/bett.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "watched"
+        }
+      ],
+      "favorite": true
+    },
+    {
+      "tytul": "True Detective",
+      "data": "2014-01-12",
+      "img": "media/true.jpeg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watching"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Rick and Morty",
+      "data": "2013-12-02",
+      "img": "media/rick.png",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "watched"
+        },
+        {
+          "nr": 7,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Agents of S.H.I.E.L.D.",
+      "data": "2013-09-24",
+      "img": "media/age.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "watched"
+        },
+        {
+          "nr": 7,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Black Mirror",
+      "data": "2011-12-04",
+      "img": "media/black.png",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watching"
+        },
+        {
+          "nr": 2,
+          "status": "not-watched"
+        },
+        {
+          "nr": 3,
+          "status": "watching"
+        },
+        {
+          "nr": 4,
+          "status": "watching"
+        },
+        {
+          "nr": 5,
+          "status": "not-watched"
+        },
+        {
+          "nr": 6,
+          "status": "not-watched"
+        },
+        {
+          "nr": 7,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Games of Thrones",
+      "data": "2010-04-17",
+      "img": "media/games.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "not-watched"
+        },
+        {
+          "nr": 3,
+          "status": "not-watched"
+        },
+        {
+          "nr": 4,
+          "status": "not-watched"
+        },
+        {
+          "nr": 5,
+          "status": "not-watched"
+        },
+        {
+          "nr": 6,
+          "status": "not-watched"
+        },
+        {
+          "nr": 7,
+          "status": "not-watched"
+        },
+        {
+          "nr": 8,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Walking Dead",
+      "data": "2010-10-31",
+      "img": "media/wal.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "watched"
+        },
+        {
+          "nr": 7,
+          "status": "watched"
+        },
+        {
+          "nr": 8,
+          "status": "watched"
+        },
+        {
+          "nr": 9,
+          "status": "watched"
+        },
+        {
+          "nr": 10,
+          "status": "watched"
+        },
+        {
+          "nr": 11,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Sherlock",
+      "data": "2010-07-25",
+      "img": "media/sher.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Mentalist",
+      "data": "2008-09-23",
+      "img": "media/menta.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "watched"
+        },
+        {
+          "nr": 7,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Breaking Bad",
+      "data": "2008-01-20",
+      "img": "media/br.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        }
+      ],
+      "favorite": true
+    },
+    {
+      "tytul": "Dexter",
+      "data": "2006-10-01",
+      "img": "media/dexter.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "watched"
+        },
+        {
+          "nr": 7,
+          "status": "watched"
+        },
+        {
+          "nr": 8,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Supernatural",
+      "data": "2005-09-14",
+      "img": "media/sup.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "watching"
+        },
+        {
+          "nr": 7,
+          "status": "not-watched"
+        },
+        {
+          "nr": 8,
+          "status": "not-watched"
+        },
+        {
+          "nr": 9,
+          "status": "not-watched"
+        },
+        {
+          "nr": 10,
+          "status": "not-watched"
+        },
+        {
+          "nr": 11,
+          "status": "not-watched"
+        },
+        {
+          "nr": 12,
+          "status": "not-watched"
+        },
+        {
+          "nr": 13,
+          "status": "not-watched"
+        },
+        {
+          "nr": 14,
+          "status": "not-watched"
+        },
+        {
+          "nr": 15,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Dr House",
+      "data": "2004-11-16",
+      "img": "media/dr_house.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "watched"
+        },
+        {
+          "nr": 7,
+          "status": "watched"
+        },
+        {
+          "nr": 8,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Office",
+      "data": "2005-03-24",
+      "img": "media/biur.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        },
+        {
+          "nr": 3,
+          "status": "watched"
+        },
+        {
+          "nr": 4,
+          "status": "watched"
+        },
+        {
+          "nr": 5,
+          "status": "watched"
+        },
+        {
+          "nr": 6,
+          "status": "watched"
+        },
+        {
+          "nr": 7,
+          "status": "watched"
+        },
+        {
+          "nr": 8,
+          "status": "watched"
+        },
+        {
+          "nr": 9,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Wiedźmin",
+      "data": "2002-09-22",
+      "img": "media/wiedzmin.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Sopranos",
+      "data": "1999-01-10",
+      "img": "media/sop.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watching"
+        },
+        {
+          "nr": 2,
+          "status": "not-watched"
+        },
+        {
+          "nr": 3,
+          "status": "not-watched"
+        },
+        {
+          "nr": 4,
+          "status": "not-watched"
+        },
+        {
+          "nr": 5,
+          "status": "not-watched"
+        },
+        {
+          "nr": 6,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
+      "tytul": "13 posterunek",
+      "data": "1997-12-24",
+      "img": "media/13.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "watched"
+        }
+      ]
+    }
+  ],
+  "miniseriale": [
+    {
+      "tytul": "Adolescense",
+      "data": "2025-03-13",
+      "img": "media/dojrzewanie.png",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Lucky Hank",
+      "data": "2023-03-07",
+      "img": "media/hank.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Dexter: New Blood",
+      "data": "2021-11-07",
+      "img": "media/new.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Queen’s Gambit",
+      "data": "2020-10-23",
+      "img": "media/quen.png",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Chernobyl",
+      "data": "2019-05-06",
+      "img": "media/czar.jpeg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "Ślepnąc od świateł",
+      "data": "2018-10-27",
+      "img": "media/sle.jpeg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Night Of",
+      "data": "2016-07-10",
+      "img": "media/dlu.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watching"
+        }
+      ]
+    }
+  ]
+}

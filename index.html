@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* Definicja kolorów i czcionek dla całej strony */
+        /* Definicja kolorów i czcionek */
         :root {
             --bg-color: #0b132b;
             --primary-color: #1c2541;
@@ -18,9 +18,7 @@
             --text-color: #f0f0f0;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-color);
@@ -64,7 +62,7 @@
             color: white;
         }
 
-        /* --- SEKCJA HERO (POWITALNA) --- */
+        /* --- HERO --- */
         .hero {
             display: flex;
             flex-direction: column;
@@ -90,30 +88,17 @@
             color: white;
         }
 
-        .hero p {
-            max-width: 600px;
-            font-size: 1.1rem;
-        }
+        a { color: var(--highlight-color); font-weight: 600; }
 
-        a {
-            color: var(--highlight-color);
-            font-weight: 600;
-        }
-
-        /* --- GŁÓWNA ZAWARTOŚĆ STRONY --- */
+        /* --- GŁÓWNA TREŚĆ --- */
         .container {
             max-width: 1100px;
             margin: 0 auto 40px;
             padding: 0 20px;
         }
 
-        section {
-             padding-top: 60px;
-        }
-
-        main > section:first-of-type {
-            padding-top: 20px;
-        }
+        section { padding-top: 60px; }
+        main > section:first-of-type { padding-top: 20px; }
 
         h2 {
             font-family: 'Montserrat', sans-serif;
@@ -123,7 +108,7 @@
             margin-top: 20px;
         }
 
-        /* --- GALERIA ZDJĘĆ W SIATCE (GRID) --- */
+        /* --- GALERIA --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -151,86 +136,50 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item .title { font-weight: bold; font-size: 1.1em; margin-top: 15px; }
+        .gallery-item .date { font-size: 0.9em; color: #aaa; }
 
-        .gallery-item p {
-            margin: 5px 0;
-        }
-
-        .gallery-item .title {
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-top: 15px;
-        }
-
-        .gallery-item .date {
-            font-size: 0.9em;
-            color: #aaa;
-        }
-
-        /* === NOWE STYLE DLA SEKCJI SERIALE === */
+        /* --- SERIALE --- */
         .series-container {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px;
-            }
-
-        @media (max-width: 1200px) {
-            .series-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
         }
-
-        @media (max-width: 900px) {
-            .series-container {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .series-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 400px) {
-            .series-container {
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
-
+        @media (max-width: 1200px) { .series-container { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 900px) { .series-container { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .series-container { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 400px) { .series-container { grid-template-columns: repeat(1, 1fr); } }
 
         .series-item {
-            flex: 0 1 200px; /* Ustawia elastyczność i bazową szerokość */
+            flex: 0 1 200px;
             background-color: var(--primary-color);
             border-radius: 8px;
             overflow: hidden;
             text-align: center;
             padding-bottom: 15px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            display: flex; /* Dodane aby umożliwić wyrównanie treści wewnątrz */
-            flex-direction: column; /* Dodane aby umożliwić wyrównanie treści wewnątrz */
-            justify-content: space-between; /* Rozmieszczenie treści w pionie */
+            transition: transform 0.3s ease-in-out, border 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 3px solid transparent;
         }
 
-        .series-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        .series-item.favorite {
+            border-color: #ff1744 !important;
+            box-shadow: 0 0 15px rgba(255, 23, 68, 0.6) !important;
         }
+
+        .series-item:hover { transform: translateY(-8px); }
 
         .series-item img {
             width: 100%;
-            height: auto; /* Zmieniono na auto, aby zachować proporcje */
-            max-height: 175px; /* Ograniczenie maksymalnej wysokości obrazu */
-            object-fit: contain; /* Kluczowa zmiana: nie przycina, a dopasowuje */
-            transition: transform 0.3s ease-in-out;
+            height: auto;
+            max-height: 175px;
+            object-fit: contain;
+            transition: transform 0.3s;
         }
-
-        .series-item:hover img {
-            transform: scale(1.05);
-        }
+        .series-item:hover img { transform: scale(1.05); }
 
         .seasons-container {
             display: flex;
@@ -248,207 +197,63 @@
             font-weight: bold;
             padding: 3px 8px;
             border-radius: 4px;
-            cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
-            background-color: var(--highlight-color); /* Domyślny kolor niebieski */
+            background-color: var(--highlight-color);
         }
 
-        .season-icon:hover {
-            background-color: #5184da;
-            transform: scale(1.1);
-        }
+        .season-icon.watched { background-color: #4CAF50; }
+        .season-icon.watching { background-color: #FFC107; }
+        .season-icon.not-watched { background-color: #757575; }
 
-        /* Styl dla obejrzanych sezonów (zielony) */
-        .season-icon.watched {
-            background-color: #4CAF50; /* Zielony */
-        }
-
-        /* Styl dla oglądanych sezonów (żółty) */
-        .season-icon.watching {
-            background-color: #FFC107; /* Żółty */
-        }
-
-        /* Styl dla nieoglądanych sezonów (szary) */
-        .season-icon.not-watched {
-            background-color: #757575; /* Szary */
-        }
-
-        /* Hover effect - można go zachować lub dostosować */
-        .season-icon:hover {
-            background-color: #5184da; /* Domyślny kolor na hover */
-            transform: scale(1.1);
-        }
-
-        /* Hover dla poszczególnych statusów, aby były bardziej specyficzne */
-        .season-icon.watched:hover {
-            background-color: #45a049; /* Ciemniejszy zielony */
-        }
-
-        .season-icon.watching:hover {
-            background-color: #e0a800; /* Ciemniejszy żółty */
-        }
-
-        .season-icon.not-watched:hover {
-            background-color: #5a5a5a; /* Ciemniejszy szary */
-        }
-
-        /* Style dla animacji pojawiania się przy przewijaniu */
+        /* --- UŻYTECZNE KLASY --- */
         .fade-in-section {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .linux-joke { cursor: pointer; }
+        .linux-joke .hover-text { display: none; color: var(--highlight-color); font-weight: bold; }
+        .linux-joke:hover .original-text { display: none; }
+        .linux-joke:hover .hover-text { display: inline; }
 
-        /* Style dla żartu o Linuksie */
-        .linux-joke {
-            cursor: pointer;
-        }
-
-        .linux-joke .hover-text {
-            display: none;
-            color: var(--highlight-color);
-            font-weight: bold;
-        }
-
-        .linux-joke:hover .original-text {
-            display: none;
-        }
-
-        .linux-joke:hover .hover-text {
-            display: inline;
-        }
-
-        /* === NOWE STYLE: KAFELEK Z OBRAZKIEM W ROGU === */
-        .hover-image-container {
-            position: fixed; /* Stała pozycja na ekranie */
-            top: 20px;
-            right: 20px;
-            z-index: 1001; /* Wyżej niż nawigacja */
-        }
-
+        /* --- KAFELEK INFO --- */
+        .hover-image-container { position: fixed; top: 20px; right: 20px; z-index: 1001; }
         .hover-tile {
-            width: 50px;
-            height: 50px;
-            background-color: var(--highlight-color);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-                /* DODANE STYLE DO TEKSTU */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-color);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            font-size: 0.9rem;
-
+            width: 50px; height: 50px; background-color: var(--highlight-color);
+            border-radius: 5px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            color: var(--text-color); font-weight: bold; font-size: 0.9rem;
+            transition: 0.3s;
         }
-
         .hover-image-container .hidden-image {
-            display: none; /* Domyślnie ukryty */
-            position: absolute;
-            top: 0;
-            right: 60px; /* Pozycja obrazka względem kafelka */
-            width: 300px;
-            height: auto;
-            border: 3px solid var(--highlight-color);
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            display: none; position: absolute; top: 0; right: 60px;
+            width: 300px; border: 3px solid var(--highlight-color);
+            border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
-
-        .hover-image-container:hover .hidden-image {
-            display: block; /* Pokaż obrazek po najechaniu na kontener */
-        }
-
-        .hover-image-container:hover .hover-tile {
-            transform: scale(1.1); /* Lekkie powiększenie kafelka */
-        }
-
-        /* === POPRAWKI RESPONSIVE DLA NAWIGACJI === */
-
-        @media (max-width: 768px) {
-            .nav-links a {
-                padding: 15px 20px;
-            }
-        }
+        .hover-image-container:hover .hidden-image { display: block; }
+        .hover-image-container:hover .hover-tile { transform: scale(1.1); }
 
         @media (max-width: 600px) {
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-            .nav-links a {
-                padding: 12px 20px;
-                width: 90%;
-                text-align: center;
-            }
-            nav {
-                padding: 0;
-            }
+            .nav-links { flex-direction: column; align-items: center; }
+            nav { padding: 0; }
         }
 
-        /* === NOWE STYLE DLA ROZWIJANYCH PROJEKTÓW === */
+        /* --- ROZWIJANE SEKCJE --- */
         .projekt-toggle {
-            cursor: pointer;
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            padding: 15px 20px;
-            margin-top: 20px;
-            margin-bottom: 0;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
+            cursor: pointer; background-color: var(--primary-color);
+            color: var(--text-color); padding: 15px 20px; margin-top: 20px;
+            border-radius: 8px; display: flex; align-items: center;
         }
-
-        .projekt-toggle::after {
-            content: '+';
-            font-size: 1.5em;
-            margin-left: auto;
-            transition: transform 0.3s;
-        }
-
-        .projekt-toggle.active::after {
-            content: '-';
-            transform: rotate(180deg);
-        }
-
-        .projekt-toggle:hover {
-            background-color: #273452;
-        }
-
+        .projekt-toggle::after { content: '+'; font-size: 1.5em; margin-left: auto; transition: 0.3s; }
+        .projekt-toggle.active::after { content: '-'; transform: rotate(180deg); }
         .projekt-content {
-            background-color: var(--primary-color);
-            border-radius: 8px;
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+            background-color: var(--primary-color); border-radius: 8px;
+            padding: 0 20px; max-height: 0; overflow: hidden;
+            transition: max-height 0.4s, padding 0.4s;
         }
-
-        /* Aktywna klasa, która rozwija treść */
-        .projekt-content.show {
-            max-height: 4000px; /* Dostosuj w razie potrzeby */
-            padding: 20px;
-        }
-
-        /* Ukrycie tekstu "...more on Letterboxd" w widżecie */
-        iframe[src*="letterboxd-embed.timcieplowski.com"] p:last-child {
-            display: none;
-        }
-
-        /* Upewnij się, że tekst wewnątrz jest poprawnie ostylowany */
-        .projekt-content ul {
-            padding-left: 20px;
-        }
-
+        .projekt-content.show { max-height: 4000px; padding: 20px; }
+        iframe[src*="letterboxd-embed.timcieplowski.com"] p:last-child { display: none; }
     </style>
 </head>
 <body>
@@ -476,8 +281,7 @@
 
         <section id="o-mnie" class="fade-in-section">
             <h2>O mnie</h2>
-            <p>Studiuję na <strong>Politechnice Wrocławskiej</strong></p>
-            <p>Sporadycznie gram w <a href="https://www.chess.com/member/ja_nulo" target="_blank">szachy</a>, a czasem obejrzę jakiś <a href="https://letterboxd.com/janulo/films/" target="_blank">film</a>.</p>
+            <p id="opis-o-mnie">Ładowanie opisu...</p>
             <p class="linux-joke">
                 <span class="original-text"><strong>-</strong></span>
                 <span class="hover-text">tu nic nie ma</span>
@@ -507,637 +311,65 @@
             <h3 class="projekt-toggle">Seriale</h3>
                 <div class="projekt-content">
                     <p>Seriale jakie oglądam/obejrzałem:</p>
-                    <div class="series-container">
-
-                        <div class="series-item fade-in-section"> <!--7.11.2025 -->
-                            <img src="media/plur.jpg" alt="g">
-                            <p class="title">Pluribus</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--1.7.2025 -->
-                            <img src="media/dexter_r.jpg" alt="g">
-                            <p class="title">Dexter Resurrection</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--26.3.2025 -->
-                            <img src="media/studio.jpg" alt="g">
-                            <p class="title">The Studio</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watching">S1</span>
-                                <span class="season-icon not-watched">S2</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--13.12.2024 -->
-                            <img src="media/d_orin.jpeg" alt="g">
-                            <p class="title">Dexter Original Sin</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--19.9.2024 -->
-                            <img src="media/pin.jpeg" alt="g">
-                            <p class="title">The Penguin</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--10.4.2024 -->
-                            <img src="media/fall.jpg" alt="g">
-                            <p class="title">Fallout</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watching">S2</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--25.2.2024 -->
-                            <img src="media/ones.jpg" alt="g">
-                            <p class="title">The Ones Who Live</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--13.12.2023 -->
-                            <img src="media/1670.jpg" alt="g">
-                            <p class="title">1670</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--29.9.2023 -->
-                            <img src="media/genv.jpg" alt="g">
-                            <p class="title">Gen V</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--10.9.2023 -->
-                            <img src="media/daryl.jpg" alt="g">
-                            <p class="title">Daryl Dixon</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watching">S2</span>
-                                <span class="season-icon not-watched">S3</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--18.6.2023 -->
-                            <img src="media/city.jpg" alt="g">
-                            <p class="title">Dead City</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watching">S2</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--15.1.2023 -->
-                            <img src="media/las.jpg" alt="g">
-                            <p class="title">The Last of Us</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watching">S2</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--13.11.2022 -->
-                            <img src="media/tulsa.jpg" alt="g">
-                            <p class="title">Tulsa King</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watching">S2</span>
-                                <span class="season-icon not-watched">S3</span>
-                            </div>
-                        </div>
-
-
-                        <div class="series-item fade-in-section"> <!--4.2.2022 -->
-                            <img src="media/reacher.png" alt="g">
-                            <p class="title">Reacher</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watching">S3</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--21.10.2021 -->
-                            <img src="media/pl.jpg" alt="g">
-                            <p class="title">The Office PL</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--8.1.2021 -->
-                            <img src="media/lupin.jpg" alt="g">
-                            <p class="title">Lupin</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon not-watched">S4</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--20.12.2019 -->
-                            <img src="media/wie.jpg" alt="g">
-                            <p class="title">The Wicher</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon not-watched">S2</span>
-                                <span class="season-icon not-watched">S3</span>
-                                <span class="season-icon not-watched">S4</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--12.11.2019 -->
-                            <img src="media/manda.jpeg" alt="g">
-                            <p class="title">The Mandalorian</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon not-watched">S3</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--26.7.2019 -->
-                            <img src="media/boy.jpg" alt="Tytuł serialu 3">
-                            <p class="title">The Boys</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon not-watched">S6</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--16.6.2019 -->
-                            <img src="media/eu.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Euphoria</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon not-watched">S3</span>
-
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--25.2.2017 -->
-                            <img src="media/pun.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Punisher</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--2.5.2017 -->
-                            <img src="media/dom.jpg" alt="Tytuł serialu 3">
-                            <p class="title">La casa de papel</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--21.7.2016 -->
-                            <img src="media/flea.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Fleabag</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--15.7.2016 -->
-                            <img src="media/str.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Stranger Things</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--25.1.2016 -->
-                            <img src="media/Lucifer.png" alt="Tytuł serialu 3">
-                            <p class="title">Lucifer</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                                <span class="season-icon watched">S6</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--28.8.2015 -->
-                            <img src="media/nar.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Narcos</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--10.4.2015 -->
-                            <img src="media/der.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Daredevil</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--8.2.2015 -->
-                            <img src="media/bett.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Better Call Saul</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                                <span class="season-icon watched">S6</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--12.1.2014 -->
-                            <img src="media/true.jpeg" alt="Tytuł serialu 3">
-                            <p class="title">True Detective</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watching">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--2.12.2013 -->
-                            <img src="media/rick.png" alt="Tytuł serialu 3">
-                            <p class="title">Rick and Morty</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                                <span class="season-icon watched">S6</span>
-                                <span class="season-icon watched">S7</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--24.9.2013 -->
-                            <img src="media/age.jpg" alt="g">
-                            <p class="title">Agents of S.H.I.E.L.D.</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                                <span class="season-icon watched">S6</span>
-                                <span class="season-icon watched">S7</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--4.12.2011 -->
-                            <img src="media/black.png" alt="g">
-                            <p class="title">Black Mirror</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watching">S1</span>
-                                <span class="season-icon not-watched">S2</span>
-                                <span class="season-icon watching">S3</span>
-                                <span class="season-icon watching">S4</span>
-                                <span class="season-icon not-watched">S5</span>
-                                <span class="season-icon not-watched">S6</span>
-                                <span class="season-icon not-watched">S7</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--17.4.2010 -->
-                            <img src="media/games.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Games of Thrones</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon not-watched">S2</span>
-                                <span class="season-icon not-watched">S3</span>
-                                <span class="season-icon not-watched">S4</span>
-                                <span class="season-icon not-watched">S5</span>
-                                <span class="season-icon not-watched">S6</span>
-                                <span class="season-icon not-watched">S7</span>
-                                <span class="season-icon not-watched">S8</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--31.10.2010 -->
-                            <img src="media/wal.jpg" alt="Tytuł serialu 3">
-                            <p class="title">The Walking Dead</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                                <span class="season-icon watched">S6</span>
-                                <span class="season-icon watched">S7</span>
-                                <span class="season-icon watched">S8</span>
-                                <span class="season-icon watched">S9</span>
-                                <span class="season-icon watched">S10</span>
-                                <span class="season-icon watched">S11</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--25.7.2010 -->
-                            <img src="media/sher.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Sherlock</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--23.9.2008 -->
-                            <img src="media/menta.jpg" alt="Tytuł serialu 3">
-                            <p class="title">The Mentalist</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                                <span class="season-icon watched">S6</span>
-                                <span class="season-icon watched">S7</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--20.1.2008 -->
-                            <img src="media/br.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Breaking Bad</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--1.10.2006 -->
-                            <img src="media/dexter.jpg" alt="Tytuł serialu 2">
-                            <p class="title">Dexter</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                                <span class="season-icon watched">S6</span>
-                                <span class="season-icon watched">S7</span>
-                                <span class="season-icon watched">S8</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--14.9.2005 -->
-                            <img src="media/sup.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Supernatural</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                                <span class="season-icon watching">S6</span>
-                                <span class="season-icon not-watched">S7</span>
-                                <span class="season-icon not-watched">S8</span>
-                                <span class="season-icon not-watched">S9</span>
-                                <span class="season-icon not-watched">S10</span>
-                                <span class="season-icon not-watched">S11</span>
-                                <span class="season-icon not-watched">S12</span>
-                                <span class="season-icon not-watched">S13</span>
-                                <span class="season-icon not-watched">S14</span>
-                                <span class="season-icon not-watched">S15</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--16.11.2004 -->
-                            <img src="media/dr_house.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Dr House</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                                <span class="season-icon watched">S6</span>
-                                <span class="season-icon watched">S7</span>
-                                <span class="season-icon watched">S8</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--24.3.2005 -->
-                            <img src="media/biur.jpg" alt="Tytuł serialu 3">
-                            <p class="title">The Office</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                                <span class="season-icon watched">S3</span>
-                                <span class="season-icon watched">S4</span>
-                                <span class="season-icon watched">S5</span>
-                                <span class="season-icon watched">S6</span>
-                                <span class="season-icon watched">S7</span>
-                                <span class="season-icon watched">S8</span>
-                                <span class="season-icon watched">S9</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--22.9.2002 -->
-                            <img src="media/wiedzmin.jpg" alt="Tytuł serialu 3">
-                            <p class="title">Wiedźmin</p>
-                            <div class="seasons-container">
-                                <span class="season-icon not-watched">S1</span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--10.1.1999 -->
-                            <img src="media/sop.jpg" alt="Tytuł serialu 3">
-                            <p class="title">The Sopranos</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watching">S1</span>
-                                <span class="season-icon not-watched">S2</span>
-                                <span class="season-icon not-watched">S3</span>
-                                <span class="season-icon not-watched">S4</span>
-                                <span class="season-icon not-watched">S5</span>
-                                <span class="season-icon not-watched">S6</span>
-
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--24.12.1997 -->
-                            <img src="media/13.jpg" alt="Tytuł serialu 3">
-                            <p class="title">13 posterunek</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched">S1</span>
-                                <span class="season-icon watched">S2</span>
-                            </div>
-                        </div>
-
+                    <div class="series-container" id="lista-seriali">
+                        Ładowanie seriali...
                     </div>
                 </div>
 
             <h3 class="projekt-toggle">Miniseriale</h3>
                 <div class="projekt-content">
-                <p>Miniseriale jakie oglądam/obejrzałem:</p>
-                    <div class="series-container">
-
-                        <div class="series-item fade-in-section"> <!--13.3.2025 -->
-                            <img src="media/dojrzewanie.png" alt="g">
-                            <p class="title">Adolescense</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched"></span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--7.3.2023 -->
-                            <img src="media/hank.jpg" alt="g">
-                            <p class="title">Lucky Hank</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched"></span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--7.11.2021 -->
-                            <img src="media/new.jpg" alt="g">
-                            <p class="title">Dexter: New Blood</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched"></span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--23.10.2020 -->
-                            <img src="media/quen.png" alt="g">
-                            <p class="title">The Queen’s Gambit</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched"></span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--6.5.2019 -->
-                            <img src="media/czar.jpeg" alt="Tytuł serialu 3">
-                            <p class="title">Chernobyl</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched"></span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--27.10.2018 -->
-                            <img src="media/sle.jpeg" alt="Tytuł serialu 3">
-                            <p class="title">Ślepnąc od świateł</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watched"></span>
-                            </div>
-                        </div>
-
-                        <div class="series-item fade-in-section"> <!--10.7 .2016 -->
-                            <img src="media/dlu.jpg" alt="Tytuł serialu 3">
-                            <p class="title">The Night Of</p>
-                            <div class="seasons-container">
-                                <span class="season-icon watching"></span>
-                            </div>
-                        </div>
-
-
-
-
+                    <p>Miniseriale jakie oglądam/obejrzałem:</p>
+                    <div class="series-container" id="lista-miniseriali">
+                        Ładowanie miniseriali...
                     </div>
                 </div>
-
-
         </section>
 
         <section id="galeria" class="fade-in-section">
             <h2>Galeria</h2>
             <div class="gallery-grid">
-
                 <div class="gallery-item fade-in-section">
-                    <img src="media/hala2.jpg" alt="Zdjęcie jeża">
+                    <img src="media/hala2.jpg" alt="Zdjęcie">
                     <p class="title">Hala Stulecia</p>
                     <p class="date">22 listopad 2025</p>
                 </div>
-
                 <div class="gallery-item fade-in-section">
-                    <img src="media/muchobór.jpg" alt="Zdjęcie jeża">
+                    <img src="media/muchobór.jpg" alt="Zdjęcie">
                     <p class="title">Wrocław Muchobór</p>
                     <p class="date">17 październik 2025</p>
                 </div>
-
                  <div class="gallery-item fade-in-section">
-                    <img src="media/hedgehog.jpg" alt="Zdjęcie jeża">
+                    <img src="media/hedgehog.jpg" alt="Zdjęcie">
                     <p class="title">Protected hedgehog</p>
                     <p class="date">26 czerwiec 2025</p>
                 </div>
-
                 <div class="gallery-item fade-in-section">
                     <img src="media/Juwe.jpg" alt="Juwenalia">
                     <p class="title">Juwenalia PWR</p>
                     <p class="date">19 maja 2025</p>
                 </div>
-
                 <div class="gallery-item fade-in-section">
                     <img src="media/PIWO.jpg" alt="piwo">
                     <p class="title">P.I.W.O.</p>
                     <p class="date">15 maja 2025</p>
                 </div>
-
                 <div class="gallery-item fade-in-section">
                     <img src="media/rajd.jpg" alt="rajd">
                     <p class="title">Rajd</p>
                     <p class="date">27 kwietnia 2025</p>
                 </div>
-
                 <div class="gallery-item fade-in-section">
-                    <img src="media/w3.png" alt="Zrzut ekranu z Wiedźmina 3">
+                    <img src="media/w3.png" alt="Zrzut">
                     <p class="title">Wiedźmin 3</p>
                     <p class="date">12 czerwiec 2021</p>
                 </div>
-
                 <div class="gallery-item fade-in-section">
-                    <img src="media/park.jpg" alt="Zdjęcie beczki w parku">
+                    <img src="media/park.jpg" alt="Zdjęcie">
                     <p class="title">Beczka</p>
                     <p class="date">29 czerwiec 2021</p>
                 </div>
-
                 <div class="gallery-item fade-in-section">
-                    <img src="media/Szrenica.jpg" alt="Zdjęcie ze Szrenicy">
+                    <img src="media/Szrenica.jpg" alt="Zdjęcie">
                     <p class="title">Szrenica</p>
                     <p class="date">16 grudzień 2017</p>
                 </div>
@@ -1153,57 +385,102 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+
+            // Dynamiczny URL API - działa zarówno na localhost jak i produkcji
+            const API_URL = window.location.origin + '/api';
+
+            // 1. Animacje pojawiania się (Fade in)
             const sections = document.querySelectorAll('.fade-in-section');
-
-            const observerOptions = {
-                root: null, // używa viewportu jako kontenera
-                rootMargin: '0px',
-                threshold: 0.1 // uruchom, gdy 10% elementu jest widoczne
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // przestań obserwować po pokazaniu
+                        obs.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1 });
+            sections.forEach(s => observer.observe(s));
 
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-
-            // === NOWY KOD JAVASCRIPT DLA ROZWIJANYCH PROJEKTÓW ===
-            const toggles = document.querySelectorAll('.projekt-toggle');
-
-            toggles.forEach(toggle => {
+            // 2. Obsługa rozwijanych sekcji (Toggles)
+            document.querySelectorAll('.projekt-toggle').forEach(toggle => {
                 toggle.addEventListener('click', () => {
                     const content = toggle.nextElementSibling;
 
-                    // Zwiń wszystkie otwarte projekty
+                    // Zwiń inne otwarte sekcje
                     document.querySelectorAll('.projekt-content.show').forEach(item => {
-                        // Upewnij się, że nie zwijasz właśnie tego, w który kliknąłeś
                         if (item !== content) {
                             item.classList.remove('show');
                             item.previousElementSibling.classList.remove('active');
                         }
                     });
 
-                    // Przełącz klasę 'active' na nagłówku i 'show' na treści
                     toggle.classList.toggle('active');
                     content.classList.toggle('show');
                 });
             });
 
+            // 3. Widżet Letterboxd
+            fetch('https://lb-embed-content.bokonon.dev?username=janulo&limit=3'+ new Date().getTime())
+                .then(r => r.text())
+                .then(data => {
+                    document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = data;
+                });
 
-        // === KOD JAVASCRIPT DO POBIERANIA RECENZJI Z LETTERBOXD ===
-        fetch('https://lb-embed-content.bokonon.dev?username=janulo&limit=3'+ new Date().getTime())
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = data;
-            });
+            // 4. --- POBIERANIE DANYCH Z BACKENDU (O mnie + Seriale + Daty) ---
+            fetch(API_URL + "/data")
+                .then(res => res.json())
+                .then(data => {
+                    // A. Wstaw tekst "O mnie"
+                    if(data.o_mnie) {
+                        document.getElementById("opis-o-mnie").innerHTML = data.o_mnie;
+                    }
+
+                    // B. Funkcja do generowania kafelków z serialami
+                    function generujKafelki(lista, containerId) {
+                        const container = document.getElementById(containerId);
+                        container.innerHTML = ""; // Czyścimy napis "Ładowanie..."
+
+                        lista.forEach(serial => {
+                            // Generowanie kółeczek z sezonami
+                            let sezonyHTML = "";
+                            serial.sezony.forEach(s => {
+                                sezonyHTML += `<span class="season-icon ${s.status}">S${s.nr}</span>`;
+                            });
+
+                            // Formatowanie daty (jeśli istnieje w bazie)
+                            let dataHTML = "";
+                            if (serial.data) {
+                                const dataObj = new Date(serial.data);
+                                const dataTekst = dataObj.toLocaleDateString('pl-PL', {
+                                    day: 'numeric',
+                                    month: 'long',
+                                    year: 'numeric'
+                                });
+                                dataHTML = `<p style="font-size: 0.85rem; color: #888; margin: 5px 0 0 0;">${dataTekst}</p>`;
+                            }
+
+                            // Sprawdzaj czy serial jest ulubiony
+                            const favoriteClass = serial.favorite ? 'favorite' : '';
+
+                            // Wstawianie kafelka do HTML
+                            container.innerHTML += `
+                                <div class="series-item fade-in-section is-visible ${favoriteClass}">
+                                    <img src="${serial.img}" alt="${serial.tytul}">
+                                    <p class="title">${serial.tytul}</p>
+                                    ${dataHTML}
+                                    <div class="seasons-container">
+                                        ${sezonyHTML}
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    }
+
+                    // C. Wywołanie funkcji dla Seriali i Miniseriali
+                    if(data.seriale) generujKafelki(data.seriale, "lista-seriali");
+                    if(data.miniseriale) generujKafelki(data.miniseriale, "lista-miniseriali");
+                })
+                .catch(err => console.error("Błąd połączenia z backendem:", err));
         });
     </script>
 </body>
