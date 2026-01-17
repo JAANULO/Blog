@@ -2,54 +2,91 @@ from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 import json
 import os
+import shutil  # <--- Nowy import do kopiowania plików
 from datetime import datetime
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)
 
-DATA_FILE = 'data.json'
+# --- KONFIGURACJA ŚCIEŻEK ---
+# Ścieżka do trwałego wolumenu w Coolify
+VOLUME_PATH = '/app/data'
+# Plik, z którego korzysta aplikacja (wewnątrz wolumenu)
+DATA_FILE = os.path.join(VOLUME_PATH, 'data.json')
+# Plik źródłowy z repozytorium (backup/startowy)
+REPO_FILE = 'data.json'
+
+
+def initialize_storage():
+    """
+    Sprawdza, czy w wolumenie istnieje plik danych.
+    Jeśli nie - kopiuje go z repozytorium.
+    """
+    # 1. Upewnij się, że folder wolumenu istnieje
+    if not os.path.exists(VOLUME_PATH):
+        try:
+            os.makedirs(VOLUME_PATH)
+            print(f"--> Utworzono folder: {VOLUME_PATH}")
+        except OSError as e:
+            print(f"--> Błąd tworzenia folderu: {e}")
+
+    # 2. Sprawdź czy plik bazy istnieje w wolumenie
+    if not os.path.exists(DATA_FILE):
+        print(f"--> Brak pliku w {DATA_FILE}. Próba skopiowania z repozytorium...")
+
+        if os.path.exists(REPO_FILE):
+            try:
+                shutil.copy(REPO_FILE, DATA_FILE)
+                print("--> Sukces! Skopiowano dane startowe z GitHuba.")
+            except Exception as e:
+                print(f"--> Błąd kopiowania: {e}")
+        else:
+            print("--> Brak pliku w repozytorium. Tworzę pustą bazę.")
+            with open(DATA_FILE, 'w', encoding='utf-8') as f:
+                json.dump({"o_mnie": "", "seriale": [], "miniseriale": []}, f)
+    else:
+        print("--> Plik danych już istnieje w wolumenie. Pomijam kopiowanie.")
 
 
 def load_data():
-    if not os.path.exists(DATA_FILE):
+    # Uruchom inicjalizację przy każdej próbie odczytu (dla bezpieczeństwa)
+    initialize_storage()
+
+    try:
+        with open(DATA_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (json.JSONDecodeError, FileNotFoundError):
         return {"o_mnie": "", "seriale": [], "miniseriale": []}
-    with open(DATA_FILE, 'r', encoding='utf-8') as f:
-        return json.load(f)
 
 
 def save_data(data):
+    # Zapis zawsze idzie do trwałego wolumenu
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
 # Funkcja pomocnicza do sortowania
 def sort_items(items):
-    # Sortuje od najnowszej daty do najstarszej
-    # Jeśli brak daty, przyjmuje rok 1900
     return sorted(items, key=lambda x: x.get('data', '1900-01-01'), reverse=True)
 
 
 @app.route('/')
 def index():
-    """Serwuje główną stronę"""
     return send_from_directory('.', 'index.html')
 
 
 @app.route('/admin.html')
 def admin_page():
-    """Serwuje stronę admin.html"""
     return send_from_directory('.', 'admin.html')
 
 
 @app.route('/media/<path:filename>')
 def media(filename):
-    """Serwuje pliki z folderu media/"""
     return send_from_directory('media', filename)
 
 
 @app.route('/favicon.ico')
 def favicon():
-    """Serwuje favicon"""
     return send_from_directory('media', 'favicon.png')
 
 
@@ -57,7 +94,6 @@ def favicon():
 def get_data():
     data = load_data()
 
-    # Inicjalizuj pole 'favorite' dla wszystkich serii jeśli brakuje
     for serial in data.get('seriale', []):
         if 'favorite' not in serial:
             serial['favorite'] = False
@@ -65,7 +101,6 @@ def get_data():
         if 'favorite' not in serial:
             serial['favorite'] = False
 
-    # Sortujemy listy przed wysłaniem na stronę
     if 'seriale' in data:
         data['seriale'] = sort_items(data['seriale'])
     if 'miniseriale' in data:
@@ -93,7 +128,7 @@ def add_series():
     nowy_serial = {
         "tytul": req.get('tytul'),
         "img": req.get('img'),
-        "data": req.get('data'),  # <-- Zapisujemy datę
+        "data": req.get('data'),
         "sezony": []
     }
 
@@ -102,7 +137,7 @@ def add_series():
         nowy_serial['sezony'].append({"nr": i, "status": "not-watched"})
 
     if kategoria in data:
-        data[kategoria].append(nowy_serial)  # Dodajemy na koniec, sortowanie załatwi get_data
+        data[kategoria].append(nowy_serial)
         save_data(data)
         return jsonify({"message": f"Dodano do {kategoria}!"})
     else:
@@ -122,10 +157,8 @@ def update_season():
     if kategoria not in data:
         return jsonify({"message": "Błąd: nieznana kategoria"}), 400
 
-    # Szukamy serialu
     for serial in data[kategoria]:
         if serial['tytul'] == tytul:
-            # Szukamy sezonu
             for sezon in serial['sezony']:
                 if sezon['nr'] == numer_sezonu:
                     sezon['status'] = nowy_status
@@ -147,7 +180,6 @@ def delete_series():
     if kategoria not in data:
         return jsonify({"message": "Błąd: nieznana kategoria"}), 400
 
-    # Szukamy i usuwamy serial
     for i, serial in enumerate(data[kategoria]):
         if serial['tytul'] == tytul:
             data[kategoria].pop(i)
@@ -168,7 +200,6 @@ def toggle_favorite():
     if kategoria not in data:
         return jsonify({"message": "Błąd: nieznana kategoria"}), 400
 
-    # Szukamy serial i przełączamy ulubione
     for serial in data[kategoria]:
         if serial['tytul'] == tytul:
             if 'favorite' not in serial:
@@ -181,4 +212,6 @@ def toggle_favorite():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    # Upewniamy się, że storage jest gotowy przy starcie
+    initialize_storage()
+    app.run(debug=True, port=5000, host='0.0.0.0')
