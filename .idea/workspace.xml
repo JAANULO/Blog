@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2bb0d8e2-0851-4f76-84b8-7fe68be75ccf" name="Changes" comment="studio" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JAANULO&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JAANULO/Blog.git&quot;,
+    &quot;accountId&quot;: &quot;75d2c306-b90e-459b-b4af-f7a59a76cf8c&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="31StANZ2oIZ2w4ww8CSFqhN3px3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.backup.html.executor": "Run",
+    "JavaScript Debug.backup2.html.executor": "Run",
+    "JavaScript Debug.index.html.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2bb0d8e2-0851-4f76-84b8-7fe68be75ccf" name="Changes" comment="" />
+      <created>1755529161374</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1755529161374</updated>
+      <workItem from="1755529163810" duration="7390000" />
+      <workItem from="1755546562539" duration="560000" />
+      <workItem from="1755712251802" duration="43000" />
+      <workItem from="1755714003477" duration="18000" />
+      <workItem from="1756492652489" duration="1022000" />
+      <workItem from="1756493772848" duration="5000" />
+      <workItem from="1757852974771" duration="9343000" />
+      <workItem from="1757869532020" duration="4142000" />
+      <workItem from="1761038654605" duration="112000" />
+      <workItem from="1761858694150" duration="2000" />
+      <workItem from="1761938986229" duration="36000" />
+      <workItem from="1766431466142" duration="780000" />
+      <workItem from="1766534899871" duration="95000" />
+      <workItem from="1766698280319" duration="362000" />
+      <workItem from="1767240795615" duration="23000" />
+      <workItem from="1767310074288" duration="164000" />
+      <workItem from="1767788822280" duration="114000" />
+      <workItem from="1767788948030" duration="283000" />
+    </task>
+    <task id="LOCAL-00001" summary="f">
+      <option name="closed" value="true" />
+      <created>1755540380749</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1755540380749</updated>
+    </task>
+    <task id="LOCAL-00002" summary="zawijanie projektów,recenzje filmów">
+      <option name="closed" value="true" />
+      <created>1755546315015</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1755546315015</updated>
+    </task>
+    <task id="LOCAL-00003" summary="kino - opis">
+      <option name="closed" value="true" />
+      <created>1756493675109</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1756493675109</updated>
+    </task>
+    <task id="LOCAL-00004" summary="seriale">
+      <option name="closed" value="true" />
+      <created>1757865991707</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1757865991707</updated>
+    </task>
+    <task id="LOCAL-00005" summary="seriale, sezony">
+      <option name="closed" value="true" />
+      <created>1757875402822</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1757875402822</updated>
+    </task>
+    <task id="LOCAL-00006" summary="black mirror">
+      <option name="closed" value="true" />
+      <created>1766432250085</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1766432250085</updated>
+    </task>
+    <task id="LOCAL-00007" summary="br">
+      <option name="closed" value="true" />
+      <created>1766534993347</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1766534993347</updated>
+    </task>
+    <task id="LOCAL-00008" summary="pluribus,lucifer">
+      <option name="closed" value="true" />
+      <created>1766698645402</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1766698645402</updated>
+    </task>
+    <task id="LOCAL-00009" summary="st5">
+      <option name="closed" value="true" />
+      <created>1767240816233</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1767240816233</updated>
+    </task>
+    <task id="LOCAL-00010" summary="studio">
+      <option name="closed" value="true" />
+      <created>1767310237941</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1767310237947</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="f" />
+    <MESSAGE value="zawijanie projektów,recenzje filmów" />
+    <MESSAGE value="kino - opis" />
+    <MESSAGE value="seriale" />
+    <MESSAGE value="seriale, sezony" />
+    <MESSAGE value="black mirror" />
+    <MESSAGE value="br" />
+    <MESSAGE value="pluribus,lucifer" />
+    <MESSAGE value="st5" />
+    <MESSAGE value="studio" />
+    <option name="LAST_COMMIT_MESSAGE" value="studio" />
+  </component>
+</project>
