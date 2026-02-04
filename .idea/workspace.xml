@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bb0d8e2-0851-4f76-84b8-7fe68be75ccf" name="Changes" comment="studio" />
+    <list default="true" id="2bb0d8e2-0851-4f76-84b8-7fe68be75ccf" name="Changes" comment="fallots2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/atona/OneDrive/Dokumenty/GitHub/Blog" value="31StANZ2oIZ2w4ww8CSFqhN3px3" />
+    </persistenceIdMap>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -26,12 +31,16 @@
     &quot;assignee&quot;: &quot;JAANULO&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/JAANULO/Blog.git&quot;,
-    &quot;accountId&quot;: &quot;75d2c306-b90e-459b-b4af-f7a59a76cf8c&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/JAANULO/Blog.git",
+    "accountId": "b993191f-61bb-4e7a-9fb4-3d6fc320599b"
   }
-}</component>
+}]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -45,8 +54,12 @@
     "JavaScript Debug.backup.html.executor": "Run",
     "JavaScript Debug.backup2.html.executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "ai.playground.ignore.import.keys.banner.in.settings": "true",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -60,8 +73,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
-        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.308" />
+        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
       </set>
     </attachedChunks>
   </component>
@@ -91,6 +104,7 @@
       <workItem from="1767310074288" duration="164000" />
       <workItem from="1767788822280" duration="114000" />
       <workItem from="1767788948030" duration="283000" />
+      <workItem from="1770204355677" duration="95000" />
     </task>
     <task id="LOCAL-00001" summary="f">
       <option name="closed" value="true" />
@@ -172,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767310237947</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fallots2">
+      <option name="closed" value="true" />
+      <created>1770204448219</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1770204448219</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +222,15 @@
     <MESSAGE value="pluribus,lucifer" />
     <MESSAGE value="st5" />
     <MESSAGE value="studio" />
-    <option name="LAST_COMMIT_MESSAGE" value="studio" />
+    <MESSAGE value="fallots2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fallots2" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

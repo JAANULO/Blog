@@ -75,6 +75,10 @@
         {
           "nr": 2,
           "status": "watched"
+        },
+               {
+          "nr": 3,
+          "status": "not-watched"
         }
       ]
     },
