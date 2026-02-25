@@ -76,7 +76,7 @@
           "nr": 2,
           "status": "watched"
         },
-               {
+        {
           "nr": 3,
           "status": "not-watched"
         }
@@ -806,6 +806,25 @@
         {
           "nr": 7,
           "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "The Penguins of Madagascar",
+      "data": "2008-11-28",
+      "img": "media/pin.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watching"
+        },
+        {
+          "nr": 2,
+          "status": "watching"
+        },
+        {
+          "nr": 3,
+          "status": "watching"
         }
       ]
     },
