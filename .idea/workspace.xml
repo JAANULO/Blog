@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bb0d8e2-0851-4f76-84b8-7fe68be75ccf" name="Changes" comment="fallots3">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/br.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/br.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/daryl.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/daryl.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/dexter_r.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/dexter_r.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/dr_house.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/dr_house.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/ones.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/pun.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/pun.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/wie.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/wie.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,27 +52,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JavaScript Debug.backup.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.backup2.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.backup.html.executor": "Run",
+    "JavaScript Debug.backup2.html.executor": "Run",
+    "JavaScript Debug.index.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.app.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "ai.playground.ignore.import.keys.banner.in.settings": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="Projects" />
@@ -224,6 +218,7 @@
       <workItem from="1770204355677" duration="95000" />
       <workItem from="1770216403397" duration="81000" />
       <workItem from="1772029091713" duration="171000" />
+      <workItem from="1772030217493" duration="33000" />
     </task>
     <task id="LOCAL-00001" summary="f">
       <option name="closed" value="true" />
