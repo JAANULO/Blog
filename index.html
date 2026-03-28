@@ -387,7 +387,12 @@
         document.addEventListener("DOMContentLoaded", function() {
 
             // Dynamiczny URL API - działa zarówno na localhost jak i produkcji
-            const API_URL = window.location.origin + '/api';
+            //const API_URL = window.location.origin + '/api';
+
+            // 4. --- POBIERANIE DANYCH Z BACKENDU (O mnie + Seriale + Daty) ---
+            //fetch(API_URL + "/data")
+
+            //fetch("data.json")
 
             // 1. Animacje pojawiania się (Fade in)
             const sections = document.querySelectorAll('.fade-in-section');
@@ -427,7 +432,8 @@
                 });
 
             // 4. --- POBIERANIE DANYCH Z BACKENDU (O mnie + Seriale + Daty) ---
-            fetch(API_URL + "/data")
+            //fetch(API_URL + "/data")
+            fetch("data.json")
                 .then(res => res.json())
                 .then(data => {
                     // A. Wstaw tekst "O mnie"
