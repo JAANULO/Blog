@@ -1,6 +1,18 @@
 {
   "o_mnie": "Studiuję na <strong>Politechnice Wrocławskiej</strong><br>Sporadycznie gram w <a href='https://www.chess.com/member/ja_nulo' target='_blank'>szachy</a>, a czasem obejrzę jakiś <a href='https://letterboxd.com/janulo/films/' target='_blank'>film</a>.",
   "seriale": [
+	{
+      "tytul": "Young Sherlock",
+      "data": "2026-04-04",
+      "img": "media/young.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ],
+      "favorite": false
+    },
     {
       "tytul": "Pluribus",
       "data": "2025-11-07",
@@ -1103,6 +1115,17 @@
     }
   ],
   "miniseriale": [
+	{
+      "tytul": "Adolescense",
+      "data": "2025-01-15",
+      "img": "media/siedem.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        }
+      ]
+    },
     {
       "tytul": "Adolescense",
       "data": "2025-03-13",

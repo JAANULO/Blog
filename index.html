@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <link rel="icon" href="media/favicon.png" type="image/png">
     <meta charset="UTF-8">
@@ -7,7 +8,9 @@
     <title>Janusz Andrzejewski</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
 
     <style>
         /* Definicja kolorów i czcionek */
@@ -16,9 +19,14 @@
             --primary-color: #1c2541;
             --highlight-color: #6495ED;
             --text-color: #f0f0f0;
+            --transition-speed: 0.3s;
+            --border-radius: 8px;
+            --container-width: 25px;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             background-color: var(--bg-color);
@@ -88,7 +96,10 @@
             color: white;
         }
 
-        a { color: var(--highlight-color); font-weight: 600; }
+        a {
+            color: var(--highlight-color);
+            font-weight: 600;
+        }
 
         /* --- GŁÓWNA TREŚĆ --- */
         .container {
@@ -97,8 +108,13 @@
             padding: 0 20px;
         }
 
-        section { padding-top: 60px; }
-        main > section:first-of-type { padding-top: 20px; }
+        section {
+            padding-top: 60px;
+        }
+
+        main>section:first-of-type {
+            padding-top: 20px;
+        }
 
         h2 {
             font-family: 'Montserrat', sans-serif;
@@ -117,11 +133,12 @@
 
         .gallery-item {
             background-color: var(--primary-color);
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             overflow: hidden;
             text-align: center;
             padding-bottom: 15px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+            will-change: transform, box-shadow;
         }
 
         .gallery-item:hover {
@@ -136,9 +153,20 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        .gallery-item:hover img { transform: scale(1.05); }
-        .gallery-item .title { font-weight: bold; font-size: 1.1em; margin-top: 15px; }
-        .gallery-item .date { font-size: 0.9em; color: #aaa; }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .gallery-item .date {
+            font-size: 0.9em;
+            color: #aaa;
+        }
 
         /* --- SERIALE --- */
         .series-container {
@@ -146,23 +174,44 @@
             grid-template-columns: repeat(5, 1fr);
             gap: 20px;
         }
-        @media (max-width: 1200px) { .series-container { grid-template-columns: repeat(4, 1fr); } }
-        @media (max-width: 900px) { .series-container { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 600px) { .series-container { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 400px) { .series-container { grid-template-columns: repeat(1, 1fr); } }
+
+        @media (max-width: 1200px) {
+            .series-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .series-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .series-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .series-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
 
         .series-item {
             flex: 0 1 200px;
             background-color: var(--primary-color);
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             overflow: hidden;
             text-align: center;
             padding-bottom: 15px;
-            transition: transform 0.3s ease-in-out, border 0.3s, box-shadow 0.3s;
+            transition: transform var(--transition-speed) ease-in-out, border var(--transition-speed), box-shadow var(--transition-speed);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             border: 3px solid transparent;
+            will-change: transform, box-shadow;
         }
 
         .series-item.favorite {
@@ -170,7 +219,9 @@
             box-shadow: 0 0 15px rgba(255, 23, 68, 0.6) !important;
         }
 
-        .series-item:hover { transform: translateY(-8px); }
+        .series-item:hover {
+            transform: translateY(-8px);
+        }
 
         .series-item img {
             width: 100%;
@@ -179,7 +230,10 @@
             object-fit: contain;
             transition: transform 0.3s;
         }
-        .series-item:hover img { transform: scale(1.05); }
+
+        .series-item:hover img {
+            transform: scale(1.05);
+        }
 
         .seasons-container {
             display: flex;
@@ -200,9 +254,17 @@
             background-color: var(--highlight-color);
         }
 
-        .season-icon.watched { background-color: #4CAF50; }
-        .season-icon.watching { background-color: #FFC107; }
-        .season-icon.not-watched { background-color: #757575; }
+        .season-icon.watched {
+            background-color: #4CAF50;
+        }
+
+        .season-icon.watching {
+            background-color: #FFC107;
+        }
+
+        .season-icon.not-watched {
+            background-color: #757575;
+        }
 
         /* --- UŻYTECZNE KLASY --- */
         .fade-in-section {
@@ -210,52 +272,127 @@
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
-        .linux-joke { cursor: pointer; }
-        .linux-joke .hover-text { display: none; color: var(--highlight-color); font-weight: bold; }
-        .linux-joke:hover .original-text { display: none; }
-        .linux-joke:hover .hover-text { display: inline; }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .linux-joke {
+            cursor: pointer;
+        }
+
+        .linux-joke .hover-text {
+            display: none;
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        .linux-joke:hover .original-text {
+            display: none;
+        }
+
+        .linux-joke:hover .hover-text {
+            display: inline;
+        }
 
         /* --- KAFELEK INFO --- */
-        .hover-image-container { position: fixed; top: 20px; right: 20px; z-index: 1001; }
+        .hover-image-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+
         .hover-tile {
-            width: 50px; height: 50px; background-color: var(--highlight-color);
-            border-radius: 5px; cursor: pointer; display: flex;
-            align-items: center; justify-content: center;
-            color: var(--text-color); font-weight: bold; font-size: 0.9rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--highlight-color);
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 0.9rem;
             transition: 0.3s;
         }
+
         .hover-image-container .hidden-image {
-            display: none; position: absolute; top: 0; right: 60px;
-            width: 300px; border: 3px solid var(--highlight-color);
-            border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 60px;
+            width: 300px;
+            border: 3px solid var(--highlight-color);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
-        .hover-image-container:hover .hidden-image { display: block; }
-        .hover-image-container:hover .hover-tile { transform: scale(1.1); }
+
+        .hover-image-container:hover .hidden-image {
+            display: block;
+        }
+
+        .hover-image-container:hover .hover-tile {
+            transform: scale(1.1);
+        }
 
         @media (max-width: 600px) {
-            .nav-links { flex-direction: column; align-items: center; }
-            nav { padding: 0; }
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav {
+                padding: 0;
+            }
         }
 
         /* --- ROZWIJANE SEKCJE --- */
         .projekt-toggle {
-            cursor: pointer; background-color: var(--primary-color);
-            color: var(--text-color); padding: 15px 20px; margin-top: 20px;
-            border-radius: 8px; display: flex; align-items: center;
+            cursor: pointer;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
         }
-        .projekt-toggle::after { content: '+'; font-size: 1.5em; margin-left: auto; transition: 0.3s; }
-        .projekt-toggle.active::after { content: '-'; transform: rotate(180deg); }
+
+        .projekt-toggle::after {
+            content: '+';
+            font-size: 1.5em;
+            margin-left: auto;
+            transition: 0.3s;
+        }
+
+        .projekt-toggle.active::after {
+            content: '-';
+            transform: rotate(180deg);
+        }
+
         .projekt-content {
-            background-color: var(--primary-color); border-radius: 8px;
-            padding: 0 20px; max-height: 0; overflow: hidden;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
             transition: max-height 0.4s, padding 0.4s;
         }
-        .projekt-content.show { max-height: 4000px; padding: 20px; }
-        iframe[src*="letterboxd-embed.timcieplowski.com"] p:last-child { display: none; }
+
+        .projekt-content.show {
+            max-height: 4000px;
+            padding: 20px;
+        }
+
+        iframe[src*="letterboxd-embed.timcieplowski.com"] p:last-child {
+            display: none;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="hover-image-container">
@@ -299,79 +436,83 @@
 
         <section id="kino" class="fade-in-section">
             <h2>Kino</h2>
-            <p><strong>Początki: </strong>Na początku pandemii kiedy większość czasu spędzałem w domu zacząłem oglądać różne rzeczy, najpierw obejrzałem chronologicznie uniwersum Marvela, potem trylogię "Mrocznego Rycerza". A gdy skończyłem Breaking Bad (2022/2023) oraz Better Call Saul (na ten moment moje ulubione seriale) to tak naprawdę polubiłem kino. </p>
-            <p><strong>Obecnie: </strong>Staram się zmniejszać moją listę "do obejrzenia". Czasami też czytam ciekawostki z planów, zagadnienia techniczne i takie tam.</p>
+            <p><strong>Początki: </strong>Na początku pandemii kiedy większość czasu spędzałem w domu zacząłem oglądać
+                różne rzeczy, najpierw obejrzałem chronologicznie uniwersum Marvela, potem trylogię "Mrocznego Rycerza".
+                A gdy skończyłem Breaking Bad (2022/2023) oraz Better Call Saul (na ten moment moje ulubione seriale) to
+                tak naprawdę polubiłem kino. </p>
+            <p><strong>Obecnie: </strong>Staram się zmniejszać moją listę "do obejrzenia". Czasami też czytam
+                ciekawostki z planów, zagadnienia techniczne i takie tam.</p>
 
             <h3 class="projekt-toggle">Recenzje ostatnich filmów:</h3>
-                <div class="projekt-content">
-                    <p>A gdy coś obejrze to staram się to zrecenzować:</p>
-                    <div id="letterboxd-embed-wrapper-tc">Ładowanie recenzji...</div>
-                </div>
+            <div class="projekt-content">
+                <p>A gdy coś obejrze to staram się to zrecenzować:</p>
+                <div id="letterboxd-embed-wrapper-tc">Ładowanie recenzji...</div>
+            </div>
 
             <h3 class="projekt-toggle">Seriale</h3>
-                <div class="projekt-content">
-                    <p>Seriale jakie oglądam/obejrzałem:</p>
-                    <div class="series-container" id="lista-seriali">
-                        Ładowanie seriali...
-                    </div>
+            <div class="projekt-content">
+                <p>Seriale jakie oglądam/obejrzałem:</p>
+                <div class="series-container" id="lista-seriali">
+                    Ładowanie seriali...
                 </div>
+            </div>
 
             <h3 class="projekt-toggle">Miniseriale</h3>
-                <div class="projekt-content">
-                    <p>Miniseriale jakie oglądam/obejrzałem:</p>
-                    <div class="series-container" id="lista-miniseriali">
-                        Ładowanie miniseriali...
-                    </div>
+            <div class="projekt-content">
+                <p>Miniseriale jakie oglądam/obejrzałem:</p>
+                <div class="series-container" id="lista-miniseriali">
+                    Ładowanie miniseriali...
                 </div>
+            </div>
         </section>
 
         <section id="galeria" class="fade-in-section">
             <h2>Galeria</h2>
             <div class="gallery-grid">
                 <div class="gallery-item fade-in-section">
-                    <img src="media/hala2.jpg" alt="Zdjęcie">
+                    <img src="media/hala2.jpg" alt="Zdjęcie" loading="lazy">
                     <p class="title">Hala Stulecia</p>
-                    <p class="date">22 listopad 2025</p>
+                    <p class="date">22 listopada 2025</p>
                 </div>
                 <div class="gallery-item fade-in-section">
-                    <img src="media/muchobór.jpg" alt="Zdjęcie">
+                    <img src="media/muchobór.jpg" alt="Zdjęcie" loading="lazy">
                     <p class="title">Wrocław Muchobór</p>
-                    <p class="date">17 październik 2025</p>
+                    <p class="date">17 października 2025</p>
                 </div>
                  <div class="gallery-item fade-in-section">
-                    <img src="media/hedgehog.jpg" alt="Zdjęcie">
+                    <img src="media/hedgehog.jpg" alt="Zdjęcie" loading="lazy">
                     <p class="title">Protected hedgehog</p>
-                    <p class="date">26 czerwiec 2025</p>
+                    <p class="date">26 czerwca 2025</p>
                 </div>
                 <div class="gallery-item fade-in-section">
-                    <img src="media/Juwe.jpg" alt="Juwenalia">
+                    <img src="media/Juwe.jpg" alt="Juwenalia" loading="lazy">
                     <p class="title">Juwenalia PWR</p>
                     <p class="date">19 maja 2025</p>
                 </div>
                 <div class="gallery-item fade-in-section">
-                    <img src="media/PIWO.jpg" alt="piwo">
+                    <img src="media/PIWO.jpg" alt="piwo" loading="lazy">
                     <p class="title">P.I.W.O.</p>
                     <p class="date">15 maja 2025</p>
                 </div>
                 <div class="gallery-item fade-in-section">
-                    <img src="media/rajd.jpg" alt="rajd">
+                    <img src="media/rajd.jpg" alt="rajd" loading="lazy">
                     <p class="title">Rajd</p>
                     <p class="date">27 kwietnia 2025</p>
                 </div>
                 <div class="gallery-item fade-in-section">
-                    <img src="media/w3.png" alt="Zrzut">
+                    <img src="media/w3.png" alt="Zrzut" loading="lazy">
                     <p class="title">Wiedźmin 3</p>
-                    <p class="date">12 czerwiec 2021</p>
+                    <p class="date">12 czerwca 2021</p>
                 </div>
                 <div class="gallery-item fade-in-section">
-                    <img src="media/park.jpg" alt="Zdjęcie">
+                    <img src="media/park.jpg" alt="Zdjęcie" loading="lazy">
                     <p class="title">Beczka</p>
-                    <p class="date">29 czerwiec 2021</p>
+                    <p class="date">29 czerwca 2021</p>
                 </div>
                 <div class="gallery-item fade-in-section">
-                    <img src="media/Szrenica.jpg" alt="Zdjęcie">
+                    <img src="media/Szrenica.jpg" alt="Zdjęcie" loading="lazy">
                     <p class="title">Szrenica</p>
-                    <p class="date">16 grudzień 2017</p>
+                    <p class="date">16 grudnia 2017</p>
                 </div>
             </div>
         </section>
@@ -384,7 +525,7 @@
     </main>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
 
             // Dynamiczny URL API - działa zarówno na localhost jak i produkcji
             //const API_URL = window.location.origin + '/api';
@@ -403,7 +544,10 @@
                         obs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
+            }, {
+                threshold: 0.1,
+                rootMargin: '50px' // Startuj animację 50px przed wejściem w widok
+            });
             sections.forEach(s => observer.observe(s));
 
             // 2. Obsługa rozwijanych sekcji (Toggles)
@@ -425,7 +569,7 @@
             });
 
             // 3. Widżet Letterboxd
-            fetch('https://lb-embed-content.bokonon.dev?username=janulo&limit=3'+ new Date().getTime())
+            fetch('https://lb-embed-content.bokonon.dev?username=janulo&limit=3' + new Date().getTime())
                 .then(r => r.text())
                 .then(data => {
                     document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = data;
@@ -437,10 +581,19 @@
                 .then(res => res.json())
                 .then(data => {
                     // A. Wstaw tekst "O mnie"
-                    if(data.o_mnie) {
+                    if (data.o_mnie) {
                         document.getElementById("opis-o-mnie").innerHTML = data.o_mnie;
                     }
-
+                    // Sortowanie: Najpierw ulubione, potem po dacie (od najnowszych)
+                    const sortujProdukcje = (lista) => {
+                        return lista.sort((a, b) => {
+                            if (a.favorite && !b.favorite) return -1;
+                            if (!a.favorite && b.favorite) return 1;
+                            return new Date(b.data) - new Date(a.data);
+                        });
+                    };
+                    if (data.seriale) data.seriale = sortujProdukcje(data.seriale);
+                    if (data.miniseriale) data.miniseriale = sortujProdukcje(data.miniseriale);
                     // B. Funkcja do generowania kafelków z serialami
                     function generujKafelki(lista, containerId) {
                         const container = document.getElementById(containerId);
@@ -471,7 +624,7 @@
                             // Wstawianie kafelka do HTML
                             container.innerHTML += `
                                 <div class="series-item fade-in-section is-visible ${favoriteClass}">
-                                    <img src="${serial.img}" alt="${serial.tytul}">
+                                    <img src="${serial.img}" alt="${serial.tytul}" loading="lazy">
                                     <p class="title">${serial.tytul}</p>
                                     ${dataHTML}
                                     <div class="seasons-container">
@@ -483,11 +636,15 @@
                     }
 
                     // C. Wywołanie funkcji dla Seriali i Miniseriali
-                    if(data.seriale) generujKafelki(data.seriale, "lista-seriali");
-                    if(data.miniseriale) generujKafelki(data.miniseriale, "lista-miniseriali");
+                    if (data.seriale) generujKafelki(data.seriale, "lista-seriali");
+                    if (data.miniseriale) generujKafelki(data.miniseriale, "lista-miniseriali");
                 })
-                .catch(err => console.error("Błąd połączenia z backendem:", err));
+                .catch(err => {
+                    console.error("Błąd wczytywania danych:", err);
+                    document.getElementById("lista-seriali").innerHTML = "<p>Błąd ładowania danych. Spróbuj odświeżyć stronę.</p>";
+                });
         });
     </script>
 </body>
+
 </html>

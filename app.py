@@ -49,18 +49,29 @@ def initialize_storage():
 
 
 def load_data():
-    # Uruchom inicjalizację przy każdej próbie odczytu (dla bezpieczeństwa)
     initialize_storage()
-
     try:
+        if not os.path.exists(DATA_FILE):
+            return {"o_mnie": "", "seriale": [], "miniseriale": []}
+            
         with open(DATA_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
-    except (json.JSONDecodeError, FileNotFoundError):
+    except json.JSONDecodeError:
+        print("--> BŁĄD JSON: Plik uszkodzony. Próba odczytu z backupu...")
+        backup_path = DATA_FILE + ".bak"
+        if os.path.exists(backup_path):
+            with open(backup_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
         return {"o_mnie": "", "seriale": [], "miniseriale": []}
 
 
 def save_data(data):
-    # Zapis zawsze idzie do trwałego wolumenu
+    # 1. Stwórz kopię zapasową przed nadpisaniem
+    if os.path.exists(DATA_FILE):
+        backup_path = DATA_FILE + ".bak"
+        shutil.copy(DATA_FILE, backup_path)
+    
+    # 2. Zapisz nowe dane
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
@@ -121,10 +132,12 @@ def update_text():
 @app.route('/api/add-series', methods=['POST'])
 def add_series():
     req = request.json
+    
+    # Walidacja: wymagane pola
+    if not req.get('tytul') or not req.get('data'):
+        return jsonify({"message": "Błąd: Tytuł i data są wymagane"}), 400
     data = load_data()
-
     kategoria = req.get('kategoria', 'seriale')
-
     nowy_serial = {
         "tytul": req.get('tytul'),
         "img": req.get('img'),
