@@ -54,6 +54,21 @@
       "favorite": false
     },
     {
+      "tytul": "Daredevil: Born Again",
+      "data": "2025-04-4",
+      "img": "media/born.jpeg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watching"
+        },
+        {
+          "nr": 2,
+          "status": "not-watched"
+        }
+      ]
+    },
+    {
       "tytul": "Dexter Original Sin",
       "data": "2024-12-13",
       "img": "media/d_orin.jpeg",
@@ -102,6 +117,21 @@
         {
           "nr": 1,
           "status": "watched"
+        }
+      ]
+    },
+    {
+      "tytul": "La casa de papel: Berlín",
+      "data": "2023-12-29",
+      "img": "media/Berlin.jpg",
+      "sezony": [
+        {
+          "nr": 1,
+          "status": "watched"
+        },
+        {
+          "nr": 2,
+          "status": "not-watched"
         }
       ]
     },
@@ -336,8 +366,8 @@
           "status": "watched"
         },
         {
-          "nr": 6,
-          "status": "not-watched"
+          "nr": 5,
+          "status": "watching"
         }
       ]
     },
@@ -356,7 +386,7 @@
         },
         {
           "nr": 3,
-          "status": "not-watched"
+          "status": "watching"
         }
       ]
     },
@@ -1116,7 +1146,7 @@
   ],
   "miniseriale": [
 	{
-      "tytul": "Adolescense",
+      "tytul": "Agatha Christie's Seven Dials",
       "data": "2025-01-15",
       "img": "media/siedem.jpg",
       "sezony": [
