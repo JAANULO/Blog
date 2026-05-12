@@ -60,11 +60,11 @@
       "sezony": [
         {
           "nr": 1,
-          "status": "watching"
+          "status": "watched"
         },
         {
           "nr": 2,
-          "status": "not-watched"
+          "status": "watching"
         }
       ]
     },
